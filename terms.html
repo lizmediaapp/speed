@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+    <title>Terms of Service - LizSpeedTest</title>
+    <meta
+        name="description"
+        content="Read the LizSpeedTest Terms of Service covering acceptable use, speed test disclaimers, third-party infrastructure, and Android app terms."
+    />
+    <link rel="canonical" href="https://speed.lizmediaapp.com/terms.html" />
+    <meta property="og:title" content="Terms of Service - LizSpeedTest" />
+    <meta
+        property="og:description"
+        content="Review the LizSpeedTest Terms of Service for app usage rules, speed test disclaimers, and legal terms for the Android app."
+    />
+    <meta property="og:url" content="https://speed.lizmediaapp.com/terms.html" />
+    <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Terms of Service - LizSpeedTest" />
+  <meta
+      name="twitter:description"
+      content="Review acceptable use, result limitations, and legal terms for the LizSpeedTest Android app."
+  />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="/image/icon.ico" />
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Terms of Service - LizSpeedTest",
+            "url": "https://speed.lizmediaapp.com/terms.html",
+            "description": "Read the LizSpeedTest Terms of Service covering acceptable use, speed test disclaimers, third-party infrastructure, and Android app terms."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://speed.lizmediaapp.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Terms of Service",
+                    "item": "https://speed.lizmediaapp.com/terms.html"
+                }
+            ]
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>
+        body{font-family:'Plus Jakarta Sans',sans-serif;}
+        .legal-link-row{
+            scrollbar-width:none;
+            -ms-overflow-style:none;
+        }
+        .legal-link-row::-webkit-scrollbar{
+            display:none;
+        }
+    </style></head>
+<body class="min-h-screen bg-white">
+<header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto max-w-[1400px] rounded-[2rem] border border-[#efe3d7] bg-white/94 px-4 py-3 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-6 sm:py-4 lg:px-10">
+    <div class="flex items-center justify-between gap-3 sm:gap-5">
+      <a href="./" class="flex min-w-0 items-center gap-2 transition-opacity hover:opacity-90 sm:gap-3">
+        <img src="/image/lizspeed-logo.png" alt="LizSpeedTest" class="h-10 w-10 rounded-2xl object-contain sm:h-12 sm:w-12" />
+        <span class="truncate text-[1.1rem] font-extrabold tracking-[-0.05em] text-[#141414] sm:text-[1.55rem] lg:text-[2rem]">LizSpeedTest</span>
+      </a>
+      <nav class="hidden items-center justify-center gap-10 lg:flex lg:flex-1">
+        <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+        <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+        <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+        <a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+      </nav>
+      <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex shrink-0 items-center justify-center rounded-[1rem] bg-[#f47c20] px-4 py-3 text-sm font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5 sm:min-w-[148px] sm:px-6 sm:py-4 sm:text-base">Get App</a>
+    </div>
+    <div class="mt-3 lg:hidden">
+      <nav class="legal-link-row -mx-1 flex items-center gap-2 overflow-x-auto px-1 pb-1">
+        <a href="./" class="whitespace-nowrap rounded-full border border-[#efe3d7] bg-white px-3 py-2 text-sm font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+        <a href="./guides.html" class="whitespace-nowrap rounded-full border border-[#efe3d7] bg-white px-3 py-2 text-sm font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+        <a href="./help.html" class="whitespace-nowrap rounded-full border border-[#efe3d7] bg-white px-3 py-2 text-sm font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+        <a href="./about.html" class="whitespace-nowrap rounded-full border border-[#efe3d7] bg-white px-3 py-2 text-sm font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="max-w-4xl mx-auto px-4 pt-48 pb-12 sm:px-6 sm:pt-44">
+
+        <h1 class="mb-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.06em] text-primary">Terms of Service</h1>
+        <p class="text-sm text-text-muted mb-2">Last updated: March 8, 2026</p>
+        <p class="text-sm text-text-muted mb-10">Package: <code class="bg-slate-100 px-1 rounded">io.vicp.pomok.liz.speed</code></p>
+
+        <div class="space-y-10 text-[0.98rem] leading-8 text-text-muted">
+
+            <!-- 1 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">1. Acceptance of Terms</h2>
+                <p class="mb-3">
+                    By downloading, installing, or using the <strong>LizSpeedTest</strong> application ("App"), developed by
+                    <strong>Liz Media</strong> ("we", "us", or "our"), you agree to be bound by these Terms of Service ("Terms").
+                    If you do not agree to these Terms, do not install or use the App.
+                </p>
+                <p>
+                    These Terms apply to all users of the App, including users on Google Play and any other distribution platforms.
+                </p>
+            </section>
+
+            <!-- 2 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">2. Description of the App</h2>
+                <p class="mb-3">
+                    LizSpeedTest is a free Android application that allows users to measure their internet connection speed,
+                    including download speed, upload speed, ping (latency), jitter, and packet loss. The App connects to
+                    a global network of distributed speed test servers to conduct measurements.
+                </p>
+                <p>Key features include:</p>
+                <ul class="list-disc list-inside space-y-1 ml-4 mt-2">
+                    <li>Real-time download and upload speed measurement</li>
+                    <li>Ping, jitter, and packet loss measurement</li>
+                    <li>Automatic or manual server selection from a global network of speed test servers</li>
+                    <li>Local test history (up to 300 records, stored on your device only)</li>
+                    <li>Multi-language support</li>
+                    <li>Customizable speed units and connection modes</li>
+                </ul>
+            </section>
+
+            <!-- 3 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">3. License Grant</h2>
+                <p class="mb-3">
+                    Subject to your compliance with these Terms, we grant you a personal, non-exclusive, non-transferable,
+                    revocable, limited license to download and use the App on Android devices that you own or control,
+                    solely for your personal, non-commercial purposes.
+                </p>
+                <p>You may NOT:</p>
+                <ul class="list-disc list-inside space-y-1 ml-4 mt-2">
+                    <li>Copy, modify, or distribute the App or its source code without our express written permission.</li>
+                    <li>Reverse engineer, decompile, or disassemble the App, except as permitted by law.</li>
+                    <li>Use the App for commercial purposes without our prior written consent.</li>
+                    <li>Use the App to deliberately overload, attack, or disrupt network infrastructure.</li>
+                    <li>Remove, alter, or obscure any proprietary notices in the App.</li>
+                </ul>
+            </section>
+
+            <!-- 4 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">4. Acceptable Use</h2>
+                <p class="mb-3">You agree to use the App only for its intended purpose 锟?measuring your own internet connection speed. You agree not to:</p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Use the App in any way that violates applicable local, national, or international laws or regulations.</li>
+                    <li>Conduct automated, scripted, or bot-driven speed tests in rapid succession that would constitute abuse of third-party speed test servers.</li>
+                    <li>Use the App to interfere with or disrupt any network, servers, or infrastructure.</li>
+                    <li>Attempt to circumvent or disable any security features of the App.</li>
+                    <li>Misrepresent test results for fraudulent purposes (e.g., disputing internet service provider contracts based on manipulated results).</li>
+                </ul>
+            </section>
+
+            <!-- 5 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">5. Third-Party Services</h2>
+                <p class="mb-3">
+                    LizSpeedTest relies on a global network of <strong>third-party speed test servers</strong> to provide
+                    speed measurement infrastructure. Your use of the App implies acceptance that:
+                </p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Your public IP address is transmitted to these servers as a technical requirement of performing any speed test.</li>
+                    <li>Anonymous test data packets (upload/download payloads) are exchanged solely to measure network performance.</li>
+                    <li>The availability of these servers is outside our control; if they are unavailable, core App functionality will not work.</li>
+                </ul>
+                <p class="mt-3">We do not use any advertising networks, social media SDKs, analytics platforms, or other third-party tracking services.</p>
+            </section>
+
+            <!-- 6 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">6. Accuracy of Results</h2>
+                <p class="mb-3">
+                    Speed test results are provided for informational purposes only. Results may vary based on factors
+                    including but not limited to:
+                </p>
+                <ul class="list-disc list-inside space-y-1 ml-4">
+                    <li>Your device's hardware capabilities and background processes</li>
+                    <li>Network congestion at the time of testing</li>
+                    <li>Geographic distance to the test server</li>
+                    <li>Interference from other applications or network users</li>
+                    <li>Wireless signal quality (for Wi-Fi or mobile data connections)</li>
+                </ul>
+                <p class="mt-3">
+                    We make no warranties or guarantees regarding the accuracy of test results. Results should not be
+                    used as the sole basis for formal complaints, legal disputes, or contractual claims against internet
+                    service providers without corroborating evidence.
+                </p>
+            </section>
+
+            <!-- 7 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">7. Intellectual Property</h2>
+                <p>
+                    All rights, title, and interest in and to the App (excluding third-party speed test infrastructure and
+                    third-party libraries) are owned by Liz Media. The App, including its design, code, icons, and
+                    branding, is protected by applicable intellectual property laws. The "LizSpeedTest" name and logo
+                    are the property of Liz Media.
+                </p>
+            </section>
+
+            <!-- 8 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">8. Disclaimer of Warranties</h2>
+                <p class="mb-3">
+                    THE APP IS PROVIDED ON AN <strong>"AS IS" AND "AS AVAILABLE"</strong> BASIS WITHOUT WARRANTIES OF ANY KIND,
+                    EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES INCLUDING:
+                </p>
+                <ul class="list-disc list-inside space-y-1 ml-4">
+                    <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</li>
+                    <li>Warranties that the App will be uninterrupted, error-free, or free of viruses or other harmful components.</li>
+                    <li>Warranties regarding the accuracy, reliability, or completeness of speed test results.</li>
+                </ul>
+            </section>
+
+            <!-- 9 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">9. Limitation of Liability</h2>
+                <p>
+                    TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL LIZ MEDIA BE LIABLE FOR ANY
+                    INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES ARISING OUT OF OR IN
+                    CONNECTION WITH YOUR USE OF THE APP, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+                    OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING FROM OR RELATED TO THESE TERMS OR THE APP SHALL NOT
+                    EXCEED THE AMOUNT PAID BY YOU FOR THE APP (WHICH, IF THE APP IS FREE, IS ZERO).
+                </p>
+            </section>
+
+            <!-- 10 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">10. Updates and Modifications</h2>
+                <p class="mb-3">
+                    We may update the App from time to time to add features, fix bugs, or comply with changes in
+                    third-party APIs or platform requirements. We may also update these Terms at any time. The updated
+                    Terms will be posted at this URL with a revised "Last updated" date.
+                </p>
+                <p>
+                    We reserve the right to discontinue or modify the App at any time without notice. Continued use of
+                    the App after changes to these Terms constitutes your acceptance of the revised Terms.
+                </p>
+            </section>
+
+            <!-- 11 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">11. Children's Use</h2>
+                <p>
+                    The App is not directed at children under the age of 13. We do not knowingly collect personal
+                    information from children. If you are under 13 years of age, please do not use the App. If you
+                    are a parent or guardian who believes your child has used the App, please contact us.
+                </p>
+            </section>
+
+            <!-- 12 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">12. Governing Law</h2>
+                <p>
+                    These Terms shall be governed by and construed in accordance with applicable laws, without regard
+                    to conflict-of-law principles. Any dispute arising under these Terms shall be subject to the
+                    exclusive jurisdiction of the competent courts in the developer's jurisdiction of registration.
+                </p>
+            </section>
+
+            <!-- 13 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">13. Termination</h2>
+                <p>
+                    We reserve the right to terminate or suspend access to the App for any user who violates these Terms.
+                    Upon termination, you must cease all use of the App and uninstall it from your devices. Sections
+                    regarding intellectual property, disclaimers, and limitations of liability shall survive termination.
+                </p>
+            </section>
+
+            <!-- 14 -->
+            <section>
+                <h2 class="mb-3 text-[2rem] font-extrabold leading-[1.04] tracking-[-0.05em] text-slate-800">14. Contact Us</h2>
+                <p class="mb-3">If you have any questions about these Terms of Service, please contact us:</p>
+                <div class="bg-slate-50 rounded-xl p-4 text-sm">
+                    <p><strong>Developer:</strong> Liz Media</p>
+                    <p><strong>App:</strong> LizSpeedTest</p>
+                    <p><strong>Package:</strong> <code class="bg-white px-1 rounded">io.vicp.pomok.liz.speed</code></p>
+                    <p><strong>Email:</strong> <a href="mailto:lizmediaapp@gmail.com" class="text-primary underline">lizmediaapp@gmail.com</a></p>
+                    <p><strong>Website:</strong> <a href="https://speed.lizmediaapp.com/" target="_blank" class="text-primary underline">https://speed.lizmediaapp.com/</a></p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-16 border-t border-[#f0e5dc] pt-7 text-center text-[0.96rem] text-[#7a7a7a]">
+            <p>&copy; 2026 Liz Media. All rights reserved.</p>
+            <div class="mt-3 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+                <a href="./privacy.html" class="whitespace-nowrap text-primary hover:underline">Privacy Policy</a>
+                <a href="./terms.html" class="whitespace-nowrap text-primary hover:underline">Terms of Service</a>
+                <a href="./" class="whitespace-nowrap hover:underline">Back to LizSpeedTest</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+

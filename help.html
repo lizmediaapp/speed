@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>LizSpeedTest Help Center</title>
+  <meta
+    name="description"
+    content="Get help with LizSpeedTest. Learn how to read download, upload, ping, jitter, and packet loss results and troubleshoot unstable Wi-Fi."
+  />
+  <meta property="og:title" content="LizSpeedTest Help Center" />
+  <meta
+    property="og:description"
+    content="Learn how to interpret internet speed, ping, jitter, and packet loss results and troubleshoot unstable Wi-Fi."
+  />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/help.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/help.html" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does download speed measure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Download speed measures how quickly data moves from the internet to your device and usually affects streaming, browsing, app downloads, and cloud access."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does ping mean in a speed test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ping is the response time between your device and a server. Lower ping usually feels better in games, calls, and other interactive tasks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do after reading the basics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After you understand the core metrics, move to the Guides hub or open a problem-specific page for high ping, jitter, packet loss, or slow Wi-Fi troubleshooting."
+          }
+        }
+      ]
+    }
+  </script>
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" />
+      <span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span>
+    </a>
+    <nav class="hidden items-center gap-10 lg:flex">
+      <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+      <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+      <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+      <a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+    </nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">
+      Get App
+    </a>
+  </div>
+</header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Help Center</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">Understand your internet speed test results</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        LizSpeedTest helps you measure internet speed and diagnose unstable network quality. Use this page as the glossary for the core metrics before moving into deeper troubleshooting guides.
+      </p>
+    </div>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Download speed</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">
+          Download speed measures how quickly data moves from the internet to your device. Low download speed usually affects streaming, browsing, app downloads, and cloud file access.
+        </p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Upload speed</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">
+          Upload speed measures how quickly your device sends data out. It matters for video calls, file uploads, live streaming, cloud backups, and remote work tools.
+        </p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Ping and latency</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">
+          Ping is the response time between your device and a server. Lower ping usually feels better in online games, calls, and interactive apps.
+        </p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Jitter and packet loss</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">
+          Jitter shows how inconsistent your latency is over time. Packet loss shows that some data never arrives. Both can make a connection feel unstable even when Mbps numbers look acceptable.
+        </p>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">Quick troubleshooting checklist</h2>
+      <div class="mt-6 grid gap-5 md:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h3 class="font-bold">Run multiple tests</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-300">Test at different times of day to compare congestion patterns and avoid judging the network from a single result.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h3 class="font-bold">Check Wi-Fi signal quality</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-300">Move closer to the router, reduce obstacles, and compare results between rooms if your signal is weak or inconsistent.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h3 class="font-bold">Pause heavy background traffic</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-300">Cloud sync, app updates, downloads, or another person streaming video can distort your test results.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h3 class="font-bold">Compare servers and connections</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-300">Try another test server or compare Wi-Fi versus mobile data to isolate whether the issue is local or upstream.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Why is my speed test slow?</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">
+          Slow results can come from weak Wi-Fi, network congestion, ISP throttling, overloaded background apps, or distance from the test server. Repeating tests and checking latency patterns usually helps narrow down the cause.
+        </p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Where can I download LizSpeedTest?</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">
+          LizSpeedTest is currently available on Google Play for Android:
+          <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="font-medium text-primary underline"> open the store listing</a>.
+        </p>
+      </article>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Start with these core guides</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-600">
+        Once the basic terms make sense, these pages are the next best starting points for the most common real-world problems people need to diagnose.
+      </p>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <a href="./what-is-ping.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is ping?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Review latency basics before troubleshooting delay in games, calls, and browsing.</p>
+        </a>
+        <a href="./what-is-jitter.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is jitter?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Understand unstable latency when the connection feels inconsistent instead of simply slow.</p>
+        </a>
+        <a href="./what-is-packet-loss.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is packet loss?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">See how dropped data affects calls, gaming, buffering, and general stability.</p>
+        </a>
+        <a href="./why-is-my-ping-so-high.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Why is my ping so high?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Move from definitions into a practical latency diagnosis checklist.</p>
+        </a>
+        <a href="./how-to-fix-slow-wifi.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg md:col-span-2">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to fix slow Wi-Fi</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use a practical home-network checklist when the problem feels local to your router or room coverage.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Use the Guides hub for deeper troubleshooting</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-600">
+        When you already understand the metrics and want a path based on gaming lag, unstable calls, packet loss, or room-by-room Wi-Fi checks, open the full guides hub.
+      </p>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <a href="./guides.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Open the Guides hub</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Browse reading paths for slow Wi-Fi, gaming lag, unstable calls, packet loss, and home coverage checks.</p>
+        </a>
+        <a href="./how-to-reduce-ping-for-gaming.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to reduce ping for gaming</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use a practical gaming checklist when you already know the issue feels like delay instead of raw speed.</p>
+        </a>
+        <a href="./how-to-test-wifi-in-every-room.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg md:col-span-2">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to test Wi-Fi in every room</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Follow a room-by-room method to confirm whether the issue is weak coverage, interference, or local placement.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6">
+        <a href="./privacy.html" class="hover:text-primary">Privacy Policy</a>
+        <a href="./terms.html" class="hover:text-primary">Terms of Service</a>
+        <a href="./changelog.html" class="hover:text-primary">Release Notes</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
+
+

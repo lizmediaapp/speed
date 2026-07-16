@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>Why Is My Jitter So High? Causes and Fixes - LizSpeedTest</title>
+  <meta
+    name="description"
+    content="Learn why your jitter is high, how Wi-Fi, congestion, mobile signal, routing, and hardware cause unstable latency, and what to test first."
+  />
+  <meta property="og:title" content="Why Is My Jitter So High? Causes and Fixes - LizSpeedTest" />
+  <meta
+    property="og:description"
+    content="Find the most common causes of high jitter and use practical steps to identify whether the problem is local or upstream."
+  />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/why-is-my-jitter-high.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/why-is-my-jitter-high.html" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why is my jitter high?",
+      "url": "https://speed.lizmediaapp.com/why-is-my-jitter-high.html",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "datePublished": "2026-01-01T00:00:00Z",
+      "dateModified": "2026-07-04T00:00:00Z",
+      "author": {"@type": "Organization", "name": "LizSpeedTest", "url": "https://speed.lizmediaapp.com"},
+      "publisher": {"@type": "Organization", "name": "Liz Media", "url": "https://lizmediaapp.com"}
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://speed.lizmediaapp.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Why is my jitter high?", "item": "https://speed.lizmediaapp.com/why-is-my-jitter-high.html"}
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is my jitter so high?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High jitter usually comes from unstable Wi-Fi, network congestion, background uploads, mobile signal fluctuation, overloaded hardware, or routing problems outside your home."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can high jitter happen with good download speed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Download speed measures throughput, while jitter measures timing stability. A connection can have strong Mbps but still feel unstable if latency jumps around."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I test first when jitter is high?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test near the router, pause heavy traffic, compare another device, and repeat at a different time of day to see whether the pattern is local, time-based, or upstream."
+          }
+        }
+      ]
+    }
+  </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" />
+      <span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span>
+    </a>
+    <nav class="hidden items-center gap-10 lg:flex">
+      <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+      <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+      <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+      <a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+    </nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">
+      Get App
+    </a>
+  </div>
+</header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Diagnosis Guide</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">Why is my jitter high?</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        High jitter usually means your network timing is unstable. The most common causes are weak Wi-Fi, congestion, background traffic, mobile signal changes, overloaded hardware, or an unstable route between you and the test server.
+      </p>
+    </div>
+
+    <section class="mt-10 rounded-3xl border border-orange-100 bg-[#fffaf5] p-8 shadow-sm">
+      <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Quick answer</h2>
+      <p class="mt-4 text-[1.02rem] leading-8 text-slate-700">
+        If your jitter is high, your latency is changing too much from one moment to the next. That instability often shows up as choppy video calls, uneven gaming, or random lag spikes even when the speed test shows decent download and upload results.
+      </p>
+    </section>
+
+    <section class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-lg font-bold text-slate-900">Weak Wi-Fi</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Distance, walls, and interference can make latency inconsistent.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-lg font-bold text-slate-900">Congestion</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Busy networks and background traffic often create jitter spikes.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-lg font-bold text-slate-900">Routing</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Some servers or regions may have less stable network paths than others.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-lg font-bold text-slate-900">Hardware</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">An overloaded router or modem can create unstable response times.</p>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">How to identify the likely cause</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Only bad in one room</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">This usually points to Wi-Fi coverage or interference.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Bad at busy times</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">This often suggests congestion on your local network or ISP side.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Only bad on one server or game</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">This may indicate routing or server-specific instability.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Bad on every device</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">The problem is more likely at the router, modem, or ISP level.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">What high jitter usually means in real use</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        High jitter often feels like a connection that cannot stay smooth. Calls may sound fine for a few seconds and then turn choppy. Games may feel normal and then suddenly spike. Streams may keep stuttering even though the bandwidth result looks strong enough.
+      </p>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        That pattern is useful because it separates instability from simple slowness. If the problem is uneven rather than constantly slow, jitter is one of the first metrics to inspect.
+      </p>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Checks that narrow it down fast</h2>
+        <ol class="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Compare near-router results with the problem room</li>
+          <li>Repeat at another time of day</li>
+          <li>Pause heavy traffic and retest</li>
+          <li>Compare a second device or another connection path</li>
+        </ol>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">When you should suspect something upstream</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          If repeated tests across devices and locations still show unstable jitter, especially only at peak hours or only for some server regions, the instability may be outside your room and outside your router.
+        </p>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">FAQ about high jitter</h2>
+      <div class="mt-6 grid gap-4">
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">Can high jitter happen even when ping looks okay?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Yes. Average ping can stay acceptable while latency still jumps around enough to feel unstable.</p>
+        </details>
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">Does one bad test prove the problem?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">No. Jitter needs repeated tests because instability can come and go with load, signal quality, and routing changes.</p>
+        </details>
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">What should I compare next after seeing high jitter?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Compare ping, packet loss, room-to-room results, and time-of-day patterns to narrow down the cause.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">Use data to narrow it down</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-300">
+        LizSpeedTest helps you compare repeated jitter tests, nearby versus far-away locations, and multiple metrics such as ping and packet loss so you can narrow down the cause before changing equipment or providers.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-xl bg-primary px-6 py-3 text-[1rem] font-bold text-white transition-colors hover:bg-orange-500">
+          Download LizSpeedTest on Google Play
+        </a>
+        <a href="./how-to-fix-high-jitter.html" class="inline-flex rounded-xl border border-white/15 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/5">
+          Read how to fix high jitter
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Related guides</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <a href="./what-is-good-jitter.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is good jitter?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Compare your result with a practical target range.</p>
+        </a>
+        <a href="./what-is-jitter.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is jitter?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Review the metric before troubleshooting it.</p>
+        </a>
+        <a href="./how-to-fix-high-jitter.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to fix high jitter</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Follow a practical order for reducing instability.</p>
+        </a>
+        <a href="./packet-loss-vs-jitter.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Packet loss vs jitter</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">See how unstable timing differs from missing data.</p>
+        </a>
+        <a href="./jitter-vs-latency.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Jitter vs latency</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">See how unstable timing differs from general delay.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6">
+        <a href="./what-is-jitter.html" class="hover:text-primary">What Is Jitter</a>
+        <a href="./help.html" class="hover:text-primary">Help Center</a>
+        <a href="./privacy.html" class="hover:text-primary">Privacy Policy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
+
+

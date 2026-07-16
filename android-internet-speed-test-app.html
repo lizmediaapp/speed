@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // canonical-host-redirect
+    (function () {
+      var canonicalHost = 'speed.lizmediaapp.com';
+      var host = window.location.hostname.toLowerCase();
+      var path = window.location.pathname || '/';
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+
+      if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+        return;
+      }
+
+      var targetHost = host;
+      var shouldRedirect = false;
+
+      if (host === 'lizmediaapp.github.io') {
+        targetHost = canonicalHost;
+        path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+        shouldRedirect = true;
+      } else if (host === 'www.speed.lizmediaapp.com') {
+        targetHost = canonicalHost;
+        shouldRedirect = true;
+      } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+        targetHost = canonicalHost;
+        path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+        shouldRedirect = true;
+      } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+        path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+        shouldRedirect = true;
+      } else if (host !== canonicalHost) {
+        return;
+      }
+
+      if (path === '/index.html') {
+        path = '/';
+        shouldRedirect = true;
+      } else if (/\/index\.html$/.test(path)) {
+        path = path.replace(/\/index\.html$/, '/');
+        shouldRedirect = true;
+      }
+
+      if (host === canonicalHost && window.location.protocol !== 'https:') {
+        shouldRedirect = true;
+      }
+
+      var target = 'https://' + targetHost + path + search + hash;
+      if (shouldRedirect && target !== window.location.href) {
+        window.location.replace(target);
+      }
+    })();
+  </script>
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>Android Internet Speed Test App - LizSpeedTest</title>
+  <meta name="description" content="Use LizSpeedTest as an Android internet speed test app for download speed, upload speed, ping, jitter, packet loss, Wi-Fi checks, and network troubleshooting." />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/android-internet-speed-test-app.html" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+  <meta property="og:title" content="Android Internet Speed Test App - LizSpeedTest" />
+  <meta property="og:description" content="Measure download speed, upload speed, ping, jitter, and packet loss on Android with LizSpeedTest." />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/android-internet-speed-test-app.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Android Internet Speed Test App - LizSpeedTest" />
+  <meta name="twitter:description" content="A practical Android speed test app for bandwidth, latency, jitter, packet loss, and Wi-Fi troubleshooting." />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Android Internet Speed Test App",
+      "description": "Use LizSpeedTest as an Android internet speed test app for download speed, upload speed, ping, jitter, packet loss, Wi-Fi checks, and network troubleshooting.",
+      "url": "https://speed.lizmediaapp.com/android-internet-speed-test-app.html",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "datePublished": "2026-05-15T00:00:00Z",
+      "dateModified": "2026-05-15T00:00:00Z",
+      "author": {"@type": "Organization", "name": "LizSpeedTest", "url": "https://speed.lizmediaapp.com"},
+      "publisher": {"@type": "Organization", "name": "Liz Media", "url": "https://lizmediaapp.com"}
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+    <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+      <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+        <img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" />
+        <span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span>
+      </a>
+      <nav class="hidden items-center gap-10 lg:flex">
+        <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+        <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+        <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+      </nav>
+      <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">Get App</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Android Speed Test</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">Use LizSpeedTest as an Android internet speed test app</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        LizSpeedTest is built for Android users who want more than a single download number. It checks bandwidth, latency, jitter, and packet loss so you can understand whether a connection is fast, responsive, and stable.
+      </p>
+    </div>
+
+    <section class="mt-10 grid gap-5 md:grid-cols-3">
+      <article class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-[1.25rem] font-extrabold text-slate-900">Bandwidth</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Download and upload speed show how much data your network can move, which matters for streaming, cloud files, and large app downloads.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-[1.25rem] font-extrabold text-slate-900">Latency</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Ping shows responsiveness, which matters for gaming, remote work, live calls, and any task where delay is obvious.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-[1.25rem] font-extrabold text-slate-900">Stability</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Jitter and packet loss explain uneven connections that can feel bad even when Mbps results look acceptable.</p>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">When an Android speed test app is useful</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.15rem] font-bold text-slate-900">Checking home Wi-Fi</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Run tests near the router and in problem rooms to see whether weak coverage or interference is causing slow results.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.15rem] font-bold text-slate-900">Troubleshooting gaming lag</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Compare ping, jitter, and packet loss before changing router settings or blaming the game server.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.15rem] font-bold text-slate-900">Preparing for video calls</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">A stable connection matters as much as raw speed when your meeting depends on clear audio and smooth video.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.15rem] font-bold text-slate-900">Comparing networks</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Test Wi-Fi, mobile data, hotspots, hotel networks, or office networks with the same set of metrics.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Related troubleshooting guides</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <a href="./what-is-ping.html" class="rounded-2xl border border-slate-200 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.15rem] font-extrabold text-slate-900">What is ping?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Understand the latency number behind lag and responsiveness.</p>
+        </a>
+        <a href="./ping-vs-jitter-vs-packet-loss.html" class="rounded-2xl border border-slate-200 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.15rem] font-extrabold text-slate-900">Ping vs jitter vs packet loss</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Learn which metric explains delay, instability, or dropped data.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">Download LizSpeedTest for Android</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-300">Install the Android app to test speed, ping, jitter, and packet loss from your own device and compare results against the guides.</p>
+      <div class="mt-6">
+        <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-xl bg-primary px-6 py-3 text-[1rem] font-bold text-white transition-colors hover:bg-orange-500">Download on Google Play</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6">
+        <a href="./guides.html" class="hover:text-primary">Guides</a>
+        <a href="./privacy.html" class="hover:text-primary">Privacy Policy</a>
+        <a href="./terms.html" class="hover:text-primary">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

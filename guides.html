@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>LizSpeedTest Guides</title>
+  <meta
+    name="description"
+    content="Browse LizSpeedTest guides for ping, jitter, packet loss, and slow Wi-Fi troubleshooting. Learn what the metrics mean and download the Android app on Google Play."
+  />
+  <meta property="og:title" content="LizSpeedTest Guides" />
+  <meta
+    property="og:description"
+    content="Explore LizSpeedTest help articles and troubleshooting guides for unstable internet, high jitter, packet loss, and Wi-Fi issues."
+  />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/guides.html" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/guides.html" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LizSpeedTest Guides" />
+  <meta
+    name="twitter:description"
+    content="Troubleshooting paths for slow Wi-Fi, ping, jitter, packet loss, gaming lag, and unstable video calls."
+  />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "LizSpeedTest Guides",
+      "url": "https://speed.lizmediaapp.com/guides.html",
+      "description": "Troubleshooting paths for slow Wi-Fi, ping, jitter, packet loss, and room-by-room network testing.",
+      "hasPart": [
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/android-internet-speed-test-app.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/gaming-ping-test.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/wifi-speed-test.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/packet-loss-test.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/ping-vs-jitter-vs-packet-loss.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/what-is-ping.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/what-is-jitter.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/what-is-good-jitter.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/jitter-vs-latency.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/what-is-packet-loss.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/why-is-my-ping-so-high.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/how-to-fix-slow-wifi.html"},
+        {"@type": "WebPage", "url": "https://speed.lizmediaapp.com/how-to-test-wifi-in-every-room.html"}
+      ]
+    }
+  </script>
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "LizSpeedTest Guides",
+      "description": "Browse LizSpeedTest guides for ping, jitter, packet loss, and slow Wi-Fi troubleshooting. Learn what the metrics mean and download the Android app on Google Play.",
+      "url": "https://speed.lizmediaapp.com/guides.html",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "datePublished": "2026-01-01T00:00:00Z",
+      "dateModified": "2026-07-04T00:00:00Z",
+      "author": {
+        "@type": "Organization",
+        "name": "LizSpeedTest",
+        "url": "https://speed.lizmediaapp.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Liz Media",
+        "url": "https://lizmediaapp.com"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://speed.lizmediaapp.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://speed.lizmediaapp.com/guides.html"
+        }
+      ]
+    }
+  </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" />
+      <span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span>
+    </a>
+    <nav class="hidden items-center gap-10 lg:flex">
+      <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+      <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+      <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+      <a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+    </nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">
+      Get App
+    </a>
+  </div>
+</header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Guides</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">Explore LizSpeedTest help and troubleshooting guides</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        This page is the troubleshooting hub for LizSpeedTest. Use it when you already know the basic metrics and want the fastest reading path for slow Wi-Fi, gaming lag, unstable calls, or room-by-room coverage checks.
+      </p>
+    </div>
+
+    <section class="mt-10 rounded-3xl border border-slate-200 bg-[#fffaf5] p-8">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Use Help Center first if you need definitions</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-600">
+        The Help Center explains what download speed, upload speed, ping, jitter, and packet loss actually mean. Come back to this guides hub after the basics are clear and you want a more targeted fix path.
+      </p>
+      <div class="mt-6">
+        <a href="./help.html" class="inline-flex rounded-xl bg-primary px-6 py-3 text-[1rem] font-bold text-white transition-colors hover:bg-orange-500">
+          Open Help Center
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-10 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Choose the right reading path</h2>
+      <div class="mt-6 grid gap-5 md:grid-cols-3">
+        <article class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">If your internet feels slow</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Start with the pages that separate low bandwidth from unstable Wi-Fi and room-specific coverage issues.</p>
+          <div class="mt-4 flex flex-col gap-2 text-[0.98rem] font-semibold">
+            <a href="./help.html" class="text-primary hover:underline">Read the Help Center</a>
+            <a href="./wifi-speed-test.html" class="text-primary hover:underline">Wi-Fi speed test</a>
+            <a href="./how-to-fix-slow-wifi.html" class="text-primary hover:underline">How to fix slow Wi-Fi</a>
+            <a href="./how-to-test-wifi-in-every-room.html" class="text-primary hover:underline">How to test Wi-Fi in every room</a>
+          </div>
+        </article>
+        <article class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">If gaming or calls feel laggy</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Focus on delay and instability first so you can tell whether ping, jitter, or packet loss is the real bottleneck.</p>
+          <div class="mt-4 flex flex-col gap-2 text-[0.98rem] font-semibold">
+            <a href="./what-is-ping.html" class="text-primary hover:underline">What is ping?</a>
+            <a href="./gaming-ping-test.html" class="text-primary hover:underline">Gaming ping test</a>
+            <a href="./why-is-my-ping-so-high.html" class="text-primary hover:underline">Why is my ping so high?</a>
+            <a href="./how-to-reduce-ping-for-gaming.html" class="text-primary hover:underline">How to reduce ping for gaming</a>
+          </div>
+        </article>
+        <article class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">If the connection feels unstable</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use the jitter and packet loss guides when speed looks okay on paper but real usage still feels inconsistent.</p>
+          <div class="mt-4 flex flex-col gap-2 text-[0.98rem] font-semibold">
+            <a href="./what-is-jitter.html" class="text-primary hover:underline">What is jitter?</a>
+            <a href="./what-is-good-jitter.html" class="text-primary hover:underline">What is good jitter?</a>
+            <a href="./jitter-vs-latency.html" class="text-primary hover:underline">Jitter vs latency</a>
+            <a href="./how-to-fix-high-jitter.html" class="text-primary hover:underline">How to fix high jitter</a>
+            <a href="./packet-loss-test.html" class="text-primary hover:underline">Packet loss test</a>
+            <a href="./what-is-packet-loss.html" class="text-primary hover:underline">What is packet loss?</a>
+            <a href="./packet-loss-vs-jitter.html" class="text-primary hover:underline">Packet loss vs jitter</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Popular troubleshooting paths</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-600">
+        These paths connect the pages visitors usually need together, so you can move from a symptom to the right metric and then to a practical fix.
+      </p>
+      <div class="mt-6 grid gap-5 md:grid-cols-3">
+        <article class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.15rem] font-extrabold tracking-[-0.03em] text-slate-900">Gaming lag path</h3>
+          <ol class="mt-4 space-y-3 text-[0.98rem] font-semibold text-slate-700">
+            <li><a href="./gaming-ping-test.html" class="text-primary hover:underline">1. Test gaming ping</a></li>
+            <li><a href="./what-is-ping.html" class="text-primary hover:underline">2. Understand ping</a></li>
+            <li><a href="./why-is-my-ping-so-high.html" class="text-primary hover:underline">3. Diagnose high ping</a></li>
+            <li><a href="./how-to-reduce-ping-for-gaming.html" class="text-primary hover:underline">4. Reduce ping for gaming</a></li>
+          </ol>
+        </article>
+        <article class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.15rem] font-extrabold tracking-[-0.03em] text-slate-900">Video call path</h3>
+          <ol class="mt-4 space-y-3 text-[0.98rem] font-semibold text-slate-700">
+            <li><a href="./what-is-jitter.html" class="text-primary hover:underline">1. Understand jitter</a></li>
+            <li><a href="./what-is-good-jitter.html" class="text-primary hover:underline">2. Check good jitter ranges</a></li>
+            <li><a href="./jitter-vs-latency.html" class="text-primary hover:underline">3. Compare jitter and latency</a></li>
+            <li><a href="./what-is-good-jitter-for-video-calls.html" class="text-primary hover:underline">4. Check good jitter for calls</a></li>
+            <li><a href="./how-to-fix-high-jitter.html" class="text-primary hover:underline">5. Fix high jitter</a></li>
+          </ol>
+        </article>
+        <article class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.15rem] font-extrabold tracking-[-0.03em] text-slate-900">Home Wi-Fi path</h3>
+          <ol class="mt-4 space-y-3 text-[0.98rem] font-semibold text-slate-700">
+            <li><a href="./wifi-speed-test.html" class="text-primary hover:underline">1. Run a Wi-Fi speed test</a></li>
+            <li><a href="./how-to-fix-slow-wifi.html" class="text-primary hover:underline">2. Fix slow Wi-Fi</a></li>
+            <li><a href="./how-to-test-wifi-in-every-room.html" class="text-primary hover:underline">3. Test every room</a></li>
+            <li><a href="./packet-loss-test.html" class="text-primary hover:underline">4. Check packet loss</a></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Core guides</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-600">
+        These are the highest-value pages to crawl first if you want the clearest explanations and practical next steps for the most common network issues.
+      </p>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <a href="./what-is-ping.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is ping?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Understand how latency affects gaming, calls, and everyday responsiveness.</p>
+        </a>
+        <a href="./what-is-jitter.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is jitter?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Learn why unstable latency can make a connection feel inconsistent even with decent Mbps.</p>
+        </a>
+        <a href="./what-is-good-jitter.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is good jitter?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">See practical jitter ranges for gaming, calls, streaming, and everyday use.</p>
+        </a>
+        <a href="./what-is-packet-loss.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is packet loss?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">See how dropped packets can lead to lag, broken calls, and buffering.</p>
+        </a>
+        <a href="./android-internet-speed-test-app.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Android internet speed test app</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">See how download, upload, ping, jitter, and packet loss fit together on Android.</p>
+        </a>
+        <a href="./ping-vs-jitter-vs-packet-loss.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Ping vs jitter vs packet loss</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Compare the three metrics that explain delay, instability, and dropped data.</p>
+        </a>
+        <a href="./how-to-fix-slow-wifi.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to fix slow Wi-Fi</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use practical troubleshooting steps for weak signal, interference, and home network congestion.</p>
+        </a>
+        <a href="./wifi-speed-test.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Wi-Fi speed test</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Compare rooms and stability metrics when home Wi-Fi feels slow.</p>
+        </a>
+        <a href="./jitter-vs-ping.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Jitter vs ping</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Compare delay and instability so you can interpret speed test results more accurately.</p>
+        </a>
+        <a href="./jitter-vs-latency.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Jitter vs latency</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Learn how unstable timing differs from overall network delay.</p>
+        </a>
+        <a href="./how-to-test-wifi-in-every-room.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to test Wi-Fi in every room</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Confirm whether the problem is poor room coverage, interference, or local placement.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Jitter-focused guides</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-600">
+        These pages go deeper into the jitter questions people search most often, including what counts as good jitter and how to reduce unstable latency.
+      </p>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <a href="./what-is-good-jitter.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is good jitter?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use a general speed test range before drilling into gaming or calls.</p>
+        </a>
+        <a href="./what-is-good-jitter-for-gaming.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is good jitter for gaming?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Learn what jitter range usually feels stable during fast online matches.</p>
+        </a>
+        <a href="./what-is-good-jitter-for-video-calls.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is good jitter for video calls?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Understand why meetings can stutter even when your speed results look strong.</p>
+        </a>
+        <a href="./how-to-fix-high-jitter.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to fix high jitter</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Follow a practical checklist for diagnosing unstable latency across Wi-Fi and mobile networks.</p>
+        </a>
+        <a href="./why-is-my-jitter-high.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Why is my jitter high?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use common symptoms to narrow down whether the problem is local interference, congestion, or upstream routing.</p>
+        </a>
+        <a href="./jitter-vs-latency.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Jitter vs latency</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Answer the common question behind unstable speed test results.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Problem-solving guides</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-600">
+        These pages focus on the real questions people ask when a connection feels bad, especially for gaming, room-by-room Wi-Fi checks, and comparing unstable metrics.
+      </p>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <a href="./gaming-ping-test.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Gaming ping test</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Check ping, jitter, and packet loss when games feel laggy despite fast download speed.</p>
+        </a>
+        <a href="./why-is-my-ping-so-high.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Why is my ping so high?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use common latency patterns to separate local Wi-Fi delay from server distance and congestion.</p>
+        </a>
+        <a href="./how-to-reduce-ping-for-gaming.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to reduce ping for gaming</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Follow a practical gaming checklist instead of guessing which setting will help.</p>
+        </a>
+        <a href="./packet-loss-vs-jitter.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Packet loss vs jitter</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Understand the difference between dropped data and unstable timing.</p>
+        </a>
+        <a href="./packet-loss-test.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Packet loss test</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Check whether dropped packets are causing lag, broken calls, or buffering.</p>
+        </a>
+        <a href="./what-is-good-packet-loss.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is good packet loss?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">See when packet loss is still usable and when it starts affecting calls and games.</p>
+        </a>
+        <a href="./how-to-test-wifi-in-every-room.html" class="rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg md:col-span-2">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to test Wi-Fi in every room</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use a room-by-room testing method to find dead zones, weak coverage, and unstable areas in your home.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">Test these issues in the Android app</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-300">
+        LizSpeedTest lets you check download speed, upload speed, ping, jitter, and packet loss in one place so you can compare the guides against your real network conditions.
+      </p>
+      <div class="mt-6">
+        <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-xl bg-primary px-6 py-3 text-[1rem] font-bold text-white transition-colors hover:bg-orange-500">
+          Download on Google Play
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6">
+        <a href="./help.html" class="hover:text-primary">Help Center</a>
+        <a href="./privacy.html" class="hover:text-primary">Privacy Policy</a>
+        <a href="./terms.html" class="hover:text-primary">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
+
+

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>What Is Ping? LizSpeedTest Guide</title>
+  <meta
+    name="description"
+    content="Learn what ping means in an internet speed test, what counts as good or bad latency, and how to improve ping for gaming, calls, and everyday browsing."
+  />
+  <meta property="og:title" content="What Is Ping? LizSpeedTest Guide" />
+  <meta
+    property="og:description"
+    content="Understand ping, latency, and how they affect gaming, streaming, video calls, and general internet responsiveness."
+  />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/what-is-ping.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/what-is-ping.html" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "What is Ping?",
+      "url": "https://speed.lizmediaapp.com/what-is-ping.html",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "datePublished": "2026-01-01T00:00:00Z",
+      "dateModified": "2026-07-16T00:00:00Z",
+      "author": {"@type": "Organization", "name": "LizSpeedTest", "url": "https://speed.lizmediaapp.com"},
+      "publisher": {"@type": "Organization", "name": "Liz Media", "url": "https://lizmediaapp.com"}
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://speed.lizmediaapp.com/"},
+        {"@type": "ListItem", "position": 2, "name": "What is Ping?", "item": "https://speed.lizmediaapp.com/what-is-ping.html"}
+      ]
+    }
+  </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" />
+      <span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span>
+    </a>
+    <nav class="hidden items-center gap-10 lg:flex">
+      <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+      <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+      <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+      <a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+    </nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">
+      Get App
+    </a>
+  </div>
+</header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Ping Guide</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">What is ping in a speed test?</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        Ping is a measure of latency. It tells you how quickly your device can send a request to a server and receive a response back. Lower ping usually means a more responsive connection.
+      </p>
+    </div>
+
+    <section class="mt-10 rounded-3xl border border-orange-100 bg-[#fffaf5] p-8 shadow-sm">
+      <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Quick answer</h2>
+      <p class="mt-4 text-[1.02rem] leading-8 text-slate-700">
+        In a speed test, ping tells you how long a response takes. It is usually measured in milliseconds. Low ping helps games, calls, remote work, and interactive apps feel responsive, while high ping makes actions feel delayed even when download speed looks fast.
+      </p>
+    </section>
+
+    <section class="mt-10 grid gap-6 md:grid-cols-3">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-lg font-bold text-slate-900">Low ping</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Usually feels better for online games, video calls, remote desktops, and interactive apps.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-lg font-bold text-slate-900">High ping</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Can make actions feel delayed even if your download and upload speeds look strong.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-lg font-bold text-slate-900">What it affects</h2>
+        <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Gaming lag, call delay, slow page response, cloud app sluggishness, and unstable live streaming controls.</p>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">What is considered good ping?</h2>
+      <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+        <table class="w-full border-collapse text-sm">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="p-4 text-left font-bold text-slate-700">Ping Range</th>
+              <th class="p-4 text-left font-bold text-slate-700">General Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-slate-200">
+              <td class="p-4 font-medium text-slate-900">Below 20 ms</td>
+              <td class="p-4 text-slate-600">Excellent for gaming, voice chat, and fast interaction.</td>
+            </tr>
+            <tr class="border-t border-slate-200 bg-slate-50">
+              <td class="p-4 font-medium text-slate-900">20 to 50 ms</td>
+              <td class="p-4 text-slate-600">Very good for most users and most real-world tasks.</td>
+            </tr>
+            <tr class="border-t border-slate-200">
+              <td class="p-4 font-medium text-slate-900">50 to 100 ms</td>
+              <td class="p-4 text-slate-600">Usually usable, but delays may become noticeable in games or live calls.</td>
+            </tr>
+            <tr class="border-t border-slate-200 bg-slate-50">
+              <td class="p-4 font-medium text-slate-900">Above 100 ms</td>
+              <td class="p-4 text-slate-600">Likely to feel laggy, especially in interactive or real-time apps.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Ping diagnosis: symptom to next metric</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        Ping is only one part of network feel. Use this table when the connection feels bad and you need to decide whether to focus on ping, jitter, packet loss, or Wi-Fi conditions.
+      </p>
+      <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+        <table class="w-full border-collapse text-sm">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="p-4 text-left font-bold text-slate-700">Symptom</th>
+              <th class="p-4 text-left font-bold text-slate-700">Most likely signal</th>
+              <th class="p-4 text-left font-bold text-slate-700">Next step</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-slate-200">
+              <td class="p-4 text-slate-600">Everything feels delayed</td>
+              <td class="p-4 font-medium text-slate-900">High ping</td>
+              <td class="p-4 text-slate-600">Compare server region, peak hours, and near-router results.</td>
+            </tr>
+            <tr class="border-t border-slate-200 bg-slate-50">
+              <td class="p-4 text-slate-600">Delay appears as random spikes</td>
+              <td class="p-4 font-medium text-slate-900">Jitter</td>
+              <td class="p-4 text-slate-600">Check whether ping is stable across repeated tests.</td>
+            </tr>
+            <tr class="border-t border-slate-200">
+              <td class="p-4 text-slate-600">Game rubber-bands or calls drop words</td>
+              <td class="p-4 font-medium text-slate-900">Packet loss</td>
+              <td class="p-4 text-slate-600">Test for dropped packets, especially on Wi-Fi.</td>
+            </tr>
+            <tr class="border-t border-slate-200 bg-slate-50">
+              <td class="p-4 text-slate-600">Only one room has high ping</td>
+              <td class="p-4 font-medium text-slate-900">Wi-Fi coverage</td>
+              <td class="p-4 text-slate-600">Compare near-router and problem-room tests.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Why is my ping high?</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Weak or unstable Wi-Fi signal</li>
+          <li>Congested home network or background downloads</li>
+          <li>Long distance to the test or game server</li>
+          <li>Mobile network instability</li>
+          <li>Router or ISP routing issues</li>
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">How to reduce ping</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Move closer to your router or switch to a cleaner Wi-Fi band</li>
+          <li>Pause downloads, updates, and heavy traffic on the network</li>
+          <li>Restart your router and test again</li>
+          <li>Use Ethernet when possible for the most stable results</li>
+          <li>Compare different servers and repeat tests at different times</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Why ping can look good in one test and bad in another</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        Ping is highly sensitive to conditions at the moment you test. A result can change because another device starts streaming, because you moved farther from the router, because a mobile tower is busier, or because the chosen server is taking a worse route at that time.
+      </p>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        That is why a single result is rarely enough for troubleshooting. If one test looks unusually high, repeat it near the router, then repeat it in the room where the issue happens, and then compare a second server. The pattern matters more than one number.
+      </p>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">What good ping feels like in real use</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          Good ping usually shows up as immediate game response, quick page interactions, natural voice conversations, and remote apps that feel less delayed. It does not guarantee perfect quality, but it gives interactive tasks a better chance to feel smooth.
+        </p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">When ping is not the only problem</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          A connection can still feel bad when average ping looks decent. If calls break up or gameplay feels uneven, compare jitter and packet loss too. Those metrics often explain instability that a simple latency number misses.
+        </p>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">FAQ about ping</h2>
+      <div class="mt-6 grid gap-4">
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">Is lower ping always better?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Usually yes for interactive tasks, but consistency matters too. A slightly higher but stable connection can feel better than a low average ping with heavy jitter.</p>
+        </details>
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">Can fast internet still have bad ping?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Yes. High download speed does not automatically mean low latency. Congestion, routing, weak Wi-Fi, or background traffic can still create delay.</p>
+        </details>
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">Should I test ping more than once?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Yes. Repeating tests in different locations and times helps separate one-off spikes from a real recurring problem.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">Check ping with LizSpeedTest</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-300">
+        LizSpeedTest helps you measure ping together with download speed, upload speed, jitter, and packet loss so you can see whether your issue is bandwidth, latency, or connection stability.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed&referrer=utm_source%3Dlizspeedtest%26utm_medium%3Dwebsite%26utm_campaign%3Dwhat_is_ping_geo%26utm_content%3Dpage_cta" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-xl bg-primary px-6 py-3 text-[1rem] font-bold text-white transition-colors hover:bg-orange-500">
+          Check ping with jitter and packet loss
+        </a>
+        <a href="./why-is-my-ping-so-high.html" class="inline-flex rounded-xl border border-white/15 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/5">
+          Why is my ping so high?
+        </a>
+        <a href="./how-to-reduce-ping-for-gaming.html" class="inline-flex rounded-xl border border-white/15 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/5">
+          Reduce ping for gaming
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Related guides</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <a href="./why-is-my-ping-so-high.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Why is my ping so high?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Troubleshoot the most common causes of latency spikes.</p>
+        </a>
+        <a href="./how-to-reduce-ping-for-gaming.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to reduce ping for gaming</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use a practical gaming checklist to improve responsiveness.</p>
+        </a>
+        <a href="./jitter-vs-ping.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Jitter vs ping</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Compare delay and instability side by side.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6">
+        <a href="./help.html" class="hover:text-primary">Help Center</a>
+        <a href="./privacy.html" class="hover:text-primary">Privacy Policy</a>
+        <a href="./terms.html" class="hover:text-primary">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
+
+

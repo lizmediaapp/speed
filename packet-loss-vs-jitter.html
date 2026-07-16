@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>Packet Loss vs Jitter: LizSpeedTest Guide</title>
+  <meta
+    name="description"
+    content="Compare packet loss vs jitter, understand how each affects calls and gaming, and learn how to tell whether your issue is dropped data or unstable latency."
+  />
+  <meta property="og:title" content="Packet Loss vs Jitter: LizSpeedTest Guide" />
+  <meta
+    property="og:description"
+    content="Learn the difference between packet loss and jitter and how each one changes your real-world internet experience."
+  />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/packet-loss-vs-jitter.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/packet-loss-vs-jitter.html" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Packet Loss vs Jitter",
+      "url": "https://speed.lizmediaapp.com/packet-loss-vs-jitter.html",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "datePublished": "2026-01-01T00:00:00Z",
+      "dateModified": "2026-06-28T00:00:00Z",
+      "author": {"@type": "Organization", "name": "LizSpeedTest", "url": "https://speed.lizmediaapp.com"},
+      "publisher": {"@type": "Organization", "name": "Liz Media", "url": "https://lizmediaapp.com"}
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://speed.lizmediaapp.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Packet Loss vs Jitter", "item": "https://speed.lizmediaapp.com/packet-loss-vs-jitter.html"}
+      ]
+    }
+  </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" />
+      <span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span>
+    </a>
+    <nav class="hidden items-center gap-10 lg:flex">
+      <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+      <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+      <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+      <a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+    </nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">
+      Get App
+    </a>
+  </div>
+</header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Network Quality Guide</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">Packet loss vs jitter</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        Packet loss and jitter can both make a connection feel bad, but they are not the same problem. One is about missing data. The other is about unstable timing.
+      </p>
+    </div>
+
+    <section class="mt-12 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <table class="w-full border-collapse text-sm">
+        <thead class="bg-slate-50">
+          <tr>
+            <th class="p-4 text-left font-bold text-slate-700">Metric</th>
+            <th class="p-4 text-left font-bold text-slate-700">What it means</th>
+            <th class="p-4 text-left font-bold text-slate-700">What it feels like</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-slate-200">
+            <td class="p-4 font-medium text-slate-900">Packet loss</td>
+            <td class="p-4 text-slate-600">Some data never arrives.</td>
+            <td class="p-4 text-slate-600">Broken voice, buffering, freezing, missed game updates.</td>
+          </tr>
+          <tr class="border-t border-slate-200 bg-slate-50">
+            <td class="p-4 font-medium text-slate-900">Jitter</td>
+            <td class="p-4 text-slate-600">Latency keeps changing from moment to moment.</td>
+            <td class="p-4 text-slate-600">Uneven responsiveness, stutter, unstable call timing, inconsistent gameplay.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">When packet loss is the bigger issue</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Calls cut out or sound robotic</li>
+          <li>Video streams freeze or buffer</li>
+          <li>Online games skip events or drop sessions</li>
+          <li>Cloud apps fail to load or sync correctly</li>
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">When jitter is the bigger issue</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Connection feels inconsistent instead of fully broken</li>
+          <li>Games feel uneven even when average ping looks okay</li>
+          <li>Calls sound choppy at random moments</li>
+          <li>Problems come and go rapidly</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Why people confuse these two metrics</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        Both packet loss and jitter can make a connection feel bad in calls and games, so the symptoms can overlap. The difference is that packet loss means some information disappears, while jitter means the timing keeps changing even if the information still arrives.
+      </p>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        If the connection sounds broken, freezes, or drops actions entirely, packet loss deserves attention first. If the connection feels uneven or randomly spiky, jitter may be the better explanation.
+      </p>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">What to test next</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Repeat tests instead of trusting one run</li>
+          <li>Compare near the router and in the problem location</li>
+          <li>Check whether the issue changes by time of day</li>
+          <li>Compare another server or connection path</li>
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">When both metrics are elevated</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          If packet loss and jitter are both bad, the connection is usually unstable in more than one way. That often points to weak Wi-Fi, heavy congestion, poor mobile conditions, or broader routing trouble rather than a simple bandwidth issue.
+        </p>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">FAQ about packet loss vs jitter</h2>
+      <div class="mt-6 grid gap-4">
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">Which metric should I worry about first?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">If packet loss is clearly above zero and symptoms are severe, start there first. If loss is zero but the connection still feels unstable, focus on jitter.</p>
+        </details>
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">Can I have good speed but bad packet loss or jitter?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Yes. Throughput can look fine while stability is still poor.</p>
+        </details>
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">Should I compare ping too?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Yes. Ping adds the delay side of the picture, while packet loss and jitter explain data loss and instability.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">How to tell which one matters more</h2>
+      <ol class="mt-6 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-300">
+        <li>Run repeated tests instead of relying on one result.</li>
+        <li>If packet loss is above zero and symptoms are severe, treat that first.</li>
+        <li>If packet loss stays at zero but the connection still feels uneven, investigate jitter.</li>
+        <li>Compare results near the router and in the problem location.</li>
+      </ol>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Use LizSpeedTest to compare both</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        LizSpeedTest shows packet loss and jitter in the same test so you can separate dropped data from unstable latency and make better troubleshooting decisions.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-xl bg-primary px-6 py-3 text-[1rem] font-bold text-white transition-colors hover:bg-orange-500">
+          Download on Google Play
+        </a>
+        <a href="./packet-loss-test.html" class="inline-flex rounded-xl border border-slate-200 px-6 py-3 text-sm font-bold text-slate-900 transition-colors hover:border-primary/40 hover:text-primary">
+          Start with packet loss test
+        </a>
+        <a href="./what-is-good-packet-loss.html" class="inline-flex rounded-xl border border-slate-200 px-6 py-3 text-sm font-bold text-slate-900 transition-colors hover:border-primary/40 hover:text-primary">
+          Related: Good Packet Loss
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Related guides</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <a href="./what-is-packet-loss.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is packet loss?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Understand dropped data before comparing metrics.</p>
+        </a>
+        <a href="./what-is-jitter.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is jitter?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Review unstable latency in more detail.</p>
+        </a>
+        <a href="./jitter-vs-ping.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Jitter vs ping</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Compare instability with response delay too.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6">
+        <a href="./help.html" class="hover:text-primary">Help Center</a>
+        <a href="./privacy.html" class="hover:text-primary">Privacy Policy</a>
+        <a href="./terms.html" class="hover:text-primary">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
+
+

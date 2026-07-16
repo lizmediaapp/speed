@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>How To Test Wi-Fi In Every Room: LizSpeedTest Guide</title>
+  <meta
+    name="description"
+    content="Learn how to test Wi-Fi in every room, compare signal quality around your home, and understand whether your problem is weak coverage, congestion, or unstable latency."
+  />
+  <meta property="og:title" content="How To Test Wi-Fi In Every Room: LizSpeedTest Guide" />
+  <meta
+    property="og:description"
+    content="Use a room-by-room Wi-Fi testing checklist to find dead zones, weak coverage, and unstable network conditions."
+  />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/how-to-test-wifi-in-every-room.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/how-to-test-wifi-in-every-room.html" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to test Wi-Fi in every room",
+      "url": "https://speed.lizmediaapp.com/how-to-test-wifi-in-every-room.html",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "datePublished": "2026-01-01T00:00:00Z",
+      "dateModified": "2026-06-28T00:00:00Z",
+      "author": {"@type": "Organization", "name": "LizSpeedTest", "url": "https://speed.lizmediaapp.com"},
+      "publisher": {"@type": "Organization", "name": "Liz Media", "url": "https://lizmediaapp.com"}
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://speed.lizmediaapp.com/"},
+        {"@type": "ListItem", "position": 2, "name": "How to test Wi-Fi in every room", "item": "https://speed.lizmediaapp.com/how-to-test-wifi-in-every-room.html"}
+      ]
+    }
+  </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" />
+      <span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span>
+    </a>
+    <nav class="hidden items-center gap-10 lg:flex">
+      <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+      <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+      <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+      <a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+    </nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">
+      Get App
+    </a>
+  </div>
+</header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Home Wi-Fi Guide</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">How to test Wi-Fi in every room</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        If one part of your home feels slow, the best next step is not guessing. Test Wi-Fi room by room so you can see whether the issue is weak coverage, congestion, or unstable latency.
+      </p>
+    </div>
+
+    <section class="mt-10 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">What to measure in each room</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        Do not look only at download speed. Record download, upload, ping, jitter, and packet loss so you can tell whether a room has low throughput, unstable timing, or actual connection loss.
+      </p>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">A simple room-by-room method</h2>
+        <ol class="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Start near the router to get a reference result.</li>
+          <li>Test in each room where people actually work, stream, or game.</li>
+          <li>Repeat each test at least twice.</li>
+          <li>Run the same checks again during a busier time of day.</li>
+        </ol>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">What patterns usually mean</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Only distant rooms are slow: likely coverage or placement</li>
+          <li>Every room slows down at night: likely congestion</li>
+          <li>One room has high jitter: likely interference or weak signal</li>
+          <li>Loss appears everywhere: possibly ISP or hardware trouble</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">How to make the comparison fair</h2>
+      <ol class="mt-6 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-300">
+        <li>Use the same device for the full walkthrough.</li>
+        <li>Pause background downloads and updates first.</li>
+        <li>Use the same server when comparing rooms.</li>
+        <li>Keep notes so you can compare rooms side by side.</li>
+      </ol>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">When router placement is the real fix</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          If rooms close to the router perform well but distant or blocked rooms do not, changing router placement may help more than changing your internet plan.
+        </p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">When the issue is broader than one room</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          If the whole home shows weak results, compare a second device and repeat later. That helps separate local coverage issues from overall service quality.
+        </p>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Use LizSpeedTest for consistent comparisons</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        LizSpeedTest helps you repeat the same checks across rooms and compare speed, ping, jitter, and packet loss so coverage problems are easier to spot.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-xl bg-primary px-6 py-3 text-[1rem] font-bold text-white transition-colors hover:bg-orange-500">
+          Download on Google Play
+        </a>
+        <a href="./wifi-speed-test.html" class="inline-flex rounded-xl border border-slate-200 px-6 py-3 text-sm font-bold text-slate-900 transition-colors hover:border-primary/40 hover:text-primary">
+          Start with Wi-Fi speed test
+        </a>
+        <a href="./how-to-fix-slow-wifi.html" class="inline-flex rounded-xl border border-slate-200 px-6 py-3 text-sm font-bold text-slate-900 transition-colors hover:border-primary/40 hover:text-primary">
+          Related: Fix Slow Wi-Fi
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6">
+        <a href="./help.html" class="hover:text-primary">Help Center</a>
+        <a href="./privacy.html" class="hover:text-primary">Privacy Policy</a>
+        <a href="./terms.html" class="hover:text-primary">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
+
+

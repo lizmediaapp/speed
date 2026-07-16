@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>How To Fix Slow Wi-Fi: LizSpeedTest Guide</title>
+  <meta
+    name="description"
+    content="Learn practical ways to fix slow Wi-Fi, test your network correctly, and understand whether your issue is bandwidth, latency, jitter, or packet loss."
+  />
+  <meta property="og:title" content="How To Fix Slow Wi-Fi: LizSpeedTest Guide" />
+  <meta
+    property="og:description"
+    content="Troubleshoot weak Wi-Fi, unstable latency, and packet loss with practical steps for home internet performance."
+  />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/how-to-fix-slow-wifi.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/how-to-fix-slow-wifi.html" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to fix slow Wi-Fi",
+      "description": "Learn practical ways to fix slow Wi-Fi, test your network correctly, and understand whether your issue is bandwidth, latency, jitter, or packet loss.",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "author": {
+        "@type": "Organization",
+        "name": "LizSpeedTest",
+        "url": "https://speed.lizmediaapp.com"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Start with the right test",
+          "text": "Run multiple tests in the same room, near the router, and where the problem usually happens. Compare download speed, upload speed, ping, jitter, and packet loss."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "If download speed is low",
+          "text": "Move closer to the router and test again. Pause large downloads and updates. Restart the router and modem. Compare results on Ethernet if possible."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "If ping or jitter is high",
+          "text": "Reduce background traffic on the network. Use a less congested Wi-Fi band. Test at another time of day to check congestion. Try a different server to compare routing quality."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "If packet loss is present",
+          "text": "Check signal strength and router placement. Restart equipment and test multiple devices. Try Ethernet to isolate Wi-Fi problems. Contact your ISP if loss persists."
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How To Fix Slow Wi-Fi: LizSpeedTest Guide",
+      "description": "Learn practical ways to fix slow Wi-Fi, test your network correctly, and understand whether your issue is bandwidth, latency, jitter, or packet loss.",
+      "url": "https://speed.lizmediaapp.com/how-to-fix-slow-wifi.html",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "datePublished": "2026-01-01T00:00:00Z",
+      "dateModified": "2026-06-28T00:00:00Z",
+      "author": {
+        "@type": "Organization",
+        "name": "LizSpeedTest",
+        "url": "https://speed.lizmediaapp.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Liz Media",
+        "url": "https://lizmediaapp.com"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://speed.lizmediaapp.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://speed.lizmediaapp.com/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to fix slow Wi-Fi",
+          "item": "https://speed.lizmediaapp.com/how-to-fix-slow-wifi.html"
+        }
+      ]
+    }
+  </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" />
+      <span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span>
+    </a>
+    <nav class="hidden items-center gap-10 lg:flex">
+      <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+      <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+      <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+      <a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+    </nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">
+      Get App
+    </a>
+  </div>
+</header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Wi-Fi Troubleshooting</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">How to fix slow Wi-Fi</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        Slow Wi-Fi can come from weak signal, network congestion, poor router placement, ISP issues, or unstable latency. The best fix depends on what the speed test actually shows.
+      </p>
+    </div>
+
+    <section class="mt-10 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Start with the right test</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        Before changing settings, run multiple tests in the same room, near the router, and in the place where the problem usually happens. Compare download speed, upload speed, ping, jitter, and packet loss instead of looking only at Mbps.
+      </p>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">If download speed is low</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Move closer to the router and test again</li>
+          <li>Pause large downloads and updates</li>
+          <li>Restart the router and modem</li>
+          <li>Compare results on Ethernet if possible</li>
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">If ping or jitter is high</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Reduce background traffic on the network</li>
+          <li>Use a less congested Wi-Fi band</li>
+          <li>Test at another time of day to check congestion</li>
+          <li>Try a different server to compare routing quality</li>
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">If packet loss is present</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Check signal strength and router placement</li>
+          <li>Restart equipment and test multiple devices</li>
+          <li>Try Ethernet to isolate Wi-Fi problems</li>
+          <li>Contact your ISP if loss persists across repeated tests</li>
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">If only one room is slow</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>The issue may be coverage rather than broadband speed</li>
+          <li>Walls, distance, and interference can lower performance</li>
+          <li>Compare signal strength and test history across rooms</li>
+          <li>Consider router placement before changing providers</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">A simple slow Wi-Fi checklist</h2>
+      <ol class="mt-6 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-300">
+        <li>Run a speed test in the exact spot where the issue happens.</li>
+        <li>Repeat the test near the router.</li>
+        <li>Compare ping, jitter, and packet loss, not just download speed.</li>
+        <li>Pause heavy traffic and test again.</li>
+        <li>Restart equipment and compare results over time.</li>
+      </ol>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">When to contact your ISP</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          If repeated tests show low speeds, high packet loss, or unstable latency across different devices and times, the problem may be outside your home network.
+        </p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Use LizSpeedTest to compare results</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          LizSpeedTest helps you compare repeated Wi-Fi checks, spot trends, and understand whether your issue is slow throughput, unstable latency, or connection loss.
+        </p>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">What often gets mistaken for slow Wi-Fi</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">High jitter instead of low speed</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">A connection may have enough Mbps but still feel bad because delay keeps changing from moment to moment.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Packet loss instead of weak bandwidth</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Dropped packets can create broken calls, buffering, and failed loads even when a speed result looks acceptable.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Poor room coverage instead of an ISP problem</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">If only one part of the home performs badly, router placement and interference may matter more than your internet plan.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Peak-hour congestion instead of constant slowness</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">If performance drops only at certain times, the pattern may point to shared congestion rather than permanent hardware failure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">FAQ about slow Wi-Fi</h2>
+      <div class="mt-6 grid gap-4">
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">Should I only look at download speed?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">No. Ping, jitter, and packet loss often explain why Wi-Fi feels bad when download speed alone looks passable.</p>
+        </details>
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">If one room is slow, is my internet plan the problem?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Usually not the first suspect. One-room problems often point to coverage, interference, or placement.</p>
+        </details>
+        <details class="rounded-2xl border border-slate-200 p-5">
+          <summary class="cursor-pointer font-bold text-slate-900">When should I compare Ethernet?</summary>
+          <p class="mt-3 text-[0.98rem] leading-8 text-slate-600">Compare Ethernet whenever possible if you want to separate Wi-Fi problems from broader broadband or routing issues.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Related ping troubleshooting</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-600">
+        If your Wi-Fi problem feels more like delay than low bandwidth, start with these ping-focused guides before changing your router or provider.
+      </p>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <a href="./wifi-speed-test.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Wi-Fi speed test</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Start by comparing speed, ping, jitter, and packet loss across rooms.</p>
+        </a>
+        <a href="./why-is-my-ping-so-high.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Why is my ping so high?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Understand the common causes of latency spikes on home Wi-Fi, mobile data, and congested networks.</p>
+        </a>
+        <a href="./how-to-reduce-ping-for-gaming.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to reduce ping for gaming</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use a practical gaming checklist to improve responsiveness and test whether jitter or packet loss is the bigger issue.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">More related guides</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <a href="./how-to-test-wifi-in-every-room.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to test Wi-Fi in every room</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Use a room-by-room method to confirm coverage issues.</p>
+        </a>
+        <a href="./what-is-jitter.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is jitter?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">See why unstable latency can make Wi-Fi feel unreliable.</p>
+        </a>
+        <a href="./what-is-packet-loss.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is packet loss?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Understand dropped data and how it affects real use.</p>
+        </a>
+        <a href="./packet-loss-test.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Packet loss test</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Check whether unstable Wi-Fi is dropping data.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6">
+        <a href="./help.html" class="hover:text-primary">Help Center</a>
+        <a href="./privacy.html" class="hover:text-primary">Privacy Policy</a>
+        <a href="./terms.html" class="hover:text-primary">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
+
+

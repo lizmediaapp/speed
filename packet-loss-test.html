@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>Packet Loss Test: Check Dropped Data, Ping & Jitter</title>
+  <meta name="description" content="Learn how to run a packet loss test, what 0% packet loss means, why dropped data causes gaming lag and broken calls, and how to troubleshoot results." />
+  <meta property="og:title" content="Packet Loss Test: Check Dropped Data, Ping & Jitter" />
+  <meta property="og:description" content="Check whether dropped packets are causing lag, robotic audio, frozen calls, or unstable gaming." />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/packet-loss-test.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/packet-loss-test.html" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Packet Loss Test: Check Dropped Data, Ping and Jitter",
+      "description": "Learn how to test packet loss and interpret dropped data alongside ping, jitter, gaming lag, and video call issues.",
+      "url": "https://speed.lizmediaapp.com/packet-loss-test.html",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "datePublished": "2026-06-28T00:00:00Z",
+      "dateModified": "2026-07-16T00:00:00Z",
+      "author": {"@type": "Organization", "name": "LizSpeedTest", "url": "https://speed.lizmediaapp.com"},
+      "publisher": {"@type": "Organization", "name": "Liz Media", "url": "https://lizmediaapp.com"}
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What is a good packet loss test result?", "acceptedAnswer": {"@type": "Answer", "text": "0% packet loss is the target. Any repeated packet loss can matter for games, calls, and live apps."}},
+        {"@type": "Question", "name": "Can packet loss happen with fast internet?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Download speed can look fast while dropped packets still cause stutter, robotic audio, or disconnects."}},
+        {"@type": "Question", "name": "What should I compare with packet loss?", "acceptedAnswer": {"@type": "Answer", "text": "Compare ping and jitter too. Ping shows delay, jitter shows unstable delay, and packet loss shows missing data."}}
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://speed.lizmediaapp.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://speed.lizmediaapp.com/guides.html"},
+        {"@type": "ListItem", "position": 3, "name": "Packet Loss Test", "item": "https://speed.lizmediaapp.com/packet-loss-test.html"}
+      ]
+    }
+  </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90"><img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" /><span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span></a>
+    <nav class="hidden items-center gap-10 lg:flex"><a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a><a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a><a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a><a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a></nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">Get App</a>
+  </div>
+</header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Packet Loss Test</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">Packet loss test: check whether dropped data is causing lag</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        Packet loss means some network data never arrives. A packet loss test is useful when games rubber-band, calls sound robotic, streams freeze, or apps disconnect even though download speed looks fine.
+      </p>
+    </div>
+
+    <section class="mt-10 rounded-3xl border border-orange-100 bg-[#fffaf5] p-8 shadow-sm">
+      <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Quick answer</h2>
+      <p class="mt-4 text-[1.02rem] leading-8 text-slate-700">
+        The best packet loss result is 0%. If packet loss repeatedly appears, check whether it changes near the router, on another device, at another time of day, or with another server.
+      </p>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Packet loss diagnosis: symptom to next test</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        Packet loss often explains problems that raw download speed cannot. Use the symptom pattern to decide what to test next.
+      </p>
+      <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+        <table class="w-full border-collapse text-sm">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="p-4 text-left font-bold text-slate-700">Symptom</th>
+              <th class="p-4 text-left font-bold text-slate-700">Likely signal</th>
+              <th class="p-4 text-left font-bold text-slate-700">Next step</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-slate-200">
+              <td class="p-4 text-slate-600">Game rubber-bands or teleports</td>
+              <td class="p-4 font-medium text-slate-900">Packet loss or jitter</td>
+              <td class="p-4 text-slate-600">Run repeated tests during gameplay time and compare Wi-Fi rooms.</td>
+            </tr>
+            <tr class="border-t border-slate-200 bg-slate-50">
+              <td class="p-4 text-slate-600">Voice call drops words or sounds robotic</td>
+              <td class="p-4 font-medium text-slate-900">Packet loss, jitter, upload instability</td>
+              <td class="p-4 text-slate-600">Pause uploads and test near the router.</td>
+            </tr>
+            <tr class="border-t border-slate-200">
+              <td class="p-4 text-slate-600">Speed is fast but live apps disconnect</td>
+              <td class="p-4 font-medium text-slate-900">Repeated packet loss</td>
+              <td class="p-4 text-slate-600">Compare another device, server, and time of day.</td>
+            </tr>
+            <tr class="border-t border-slate-200 bg-slate-50">
+              <td class="p-4 text-slate-600">Only Wi-Fi has packet loss</td>
+              <td class="p-4 font-medium text-slate-900">Local signal or interference</td>
+              <td class="p-4 text-slate-600">Test closer to the router or compare Ethernet/mobile data.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">What packet loss test results mean</h2>
+      <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+        <table class="w-full border-collapse text-sm">
+          <thead class="bg-slate-50"><tr><th class="p-4 text-left font-bold text-slate-700">Result</th><th class="p-4 text-left font-bold text-slate-700">Meaning</th></tr></thead>
+          <tbody>
+            <tr class="border-t border-slate-200"><td class="p-4 font-medium text-slate-900">0%</td><td class="p-4 text-slate-600">Ideal. Data is arriving consistently.</td></tr>
+            <tr class="border-t border-slate-200 bg-slate-50"><td class="p-4 font-medium text-slate-900">Occasional loss</td><td class="p-4 text-slate-600">Can still cause stutter in games, calls, and live apps.</td></tr>
+            <tr class="border-t border-slate-200"><td class="p-4 font-medium text-slate-900">Repeated loss</td><td class="p-4 text-slate-600">Needs troubleshooting, especially if symptoms are visible.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">How to test packet loss</h2>
+        <ol class="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Pause downloads, streams, updates, and cloud sync.</li>
+          <li>Run a test near the router.</li>
+          <li>Run another test where the problem happens.</li>
+          <li>Compare packet loss with ping and jitter.</li>
+          <li>Repeat during the time when calls or games usually break.</li>
+        </ol>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Common causes</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Weak Wi-Fi signal or interference</li>
+          <li>Congested router or background uploads</li>
+          <li>ISP or routing instability</li>
+          <li>Problem server regions or overloaded services</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">Check packet loss on Android</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-300">
+        LizSpeedTest measures packet loss with ping, jitter, download speed, and upload speed so you can see whether a connection problem is missing data, unstable timing, or bandwidth pressure.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed&referrer=utm_source%3Dlizspeedtest%26utm_medium%3Dwebsite%26utm_campaign%3Dpacket_loss_test_geo%26utm_content%3Dpage_cta" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-xl bg-primary px-6 py-3 text-[1rem] font-bold text-white transition-colors hover:bg-orange-500">Check packet loss with ping and jitter</a>
+        <a href="./packet-loss-vs-jitter.html" class="inline-flex rounded-xl border border-white/15 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/5">Compare packet loss and jitter</a>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Related guides</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <a href="./what-is-packet-loss.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"><h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is packet loss?</h3><p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Understand dropped data in more detail.</p></a>
+        <a href="./packet-loss-vs-jitter.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"><h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Packet loss vs jitter</h3><p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Separate missing data from unstable timing.</p></a>
+        <a href="./gaming-ping-test.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"><h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Gaming ping test</h3><p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Check whether game lag is caused by packet loss.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6"><a href="./help.html" class="hover:text-primary">Help Center</a><a href="./privacy.html" class="hover:text-primary">Privacy Policy</a><a href="./terms.html" class="hover:text-primary">Terms of Service</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

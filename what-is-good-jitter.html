@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>What Is Good Jitter? Speed Test Ranges & Fixes</title>
+  <meta
+    name="description"
+    content="Learn what good jitter means in a speed test, what jitter range is good for gaming and video calls, and when high jitter needs troubleshooting."
+  />
+  <meta property="og:title" content="What Is Good Jitter? Speed Test Ranges & Fixes" />
+  <meta
+    property="og:description"
+    content="See practical good jitter ranges for speed tests, gaming, video calls, streaming, and everyday browsing."
+  />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/what-is-good-jitter.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/what-is-good-jitter.html" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+    <link rel="stylesheet" href="./assets/static-tailwind.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "What is good jitter in a speed test?",
+      "url": "https://speed.lizmediaapp.com/what-is-good-jitter.html",
+      "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+      "datePublished": "2026-07-04T00:00:00Z",
+      "dateModified": "2026-07-04T00:00:00Z",
+      "author": {"@type": "Organization", "name": "LizSpeedTest", "url": "https://speed.lizmediaapp.com"},
+      "publisher": {"@type": "Organization", "name": "Liz Media", "url": "https://lizmediaapp.com"}
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://speed.lizmediaapp.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://speed.lizmediaapp.com/guides.html"},
+        {"@type": "ListItem", "position": 3, "name": "What is good jitter?", "item": "https://speed.lizmediaapp.com/what-is-good-jitter.html"}
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is good jitter in a speed test?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Good jitter is usually below 10 ms for most real-time activities. Jitter between 10 and 20 ms is often usable, while jitter above 20 or 30 ms can make gaming, calls, and live voice feel unstable."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is 5 ms jitter good?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. Around 5 ms jitter is generally very good and should feel stable for gaming, video calls, and voice chat if ping and packet loss are also healthy."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is 10 ms jitter good?",
+          "acceptedAnswer": {"@type": "Answer", "text": "10 ms jitter is usually still good for everyday use and often fine for real-time apps. Competitive gaming and important calls may feel better when jitter stays below 10 ms."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is 20 ms jitter bad?",
+          "acceptedAnswer": {"@type": "Answer", "text": "20 ms jitter is not always bad, but it is where many people start to notice inconsistent response, uneven voice quality, or brief video call stutters."}
+        },
+        {
+          "@type": "Question",
+          "name": "What jitter is good for gaming?",
+          "acceptedAnswer": {"@type": "Answer", "text": "For gaming, below 10 ms is a good target. Lower jitter helps matches feel more consistent because latency is not jumping up and down during play."}
+        },
+        {
+          "@type": "Question",
+          "name": "What jitter is good for video calls?",
+          "acceptedAnswer": {"@type": "Answer", "text": "For video calls, below 20 ms is usually usable, but below 10 ms is better for smoother voice and fewer brief stutters."}
+        }
+      ]
+    }
+  </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6">
+  <div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" />
+      <span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span>
+    </a>
+    <nav class="hidden items-center gap-10 lg:flex">
+      <a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Home</a>
+      <a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Guides</a>
+      <a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">Help</a>
+      <a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] transition-colors hover:text-primary">About</a>
+    </nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white shadow-[0_16px_32px_-22px_rgba(244,124,32,0.8)] transition-transform hover:-translate-y-0.5">
+      Get App
+    </a>
+  </div>
+</header>
+
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-12">
+    <div class="max-w-3xl">
+      <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Jitter Guide</p>
+      <h1 class="mt-4 text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.035em] text-slate-900">What is good jitter in a speed test?</h1>
+      <p class="mt-4 text-[1.05rem] leading-9 text-slate-600 sm:text-[1.08rem]">
+        Good jitter means your latency stays consistent instead of jumping up and down. As a simple rule, below 10 ms is good for most real-time uses, 10 to 20 ms is often usable, and anything above 20 to 30 ms is worth investigating.
+      </p>
+    </div>
+
+    <section class="mt-10 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Quick answer: good jitter ranges</h2>
+      <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+        <table class="w-full border-collapse text-sm">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="p-4 text-left font-bold text-slate-700">Jitter result</th>
+              <th class="p-4 text-left font-bold text-slate-700">How to read it</th>
+              <th class="p-4 text-left font-bold text-slate-700">Best fit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-slate-200">
+              <td class="p-4 font-medium text-slate-900">Below 5 ms</td>
+              <td class="p-4 text-slate-600">Excellent stability with very little latency variation.</td>
+              <td class="p-4 text-slate-600">Gaming, calls, voice chat, live meetings</td>
+            </tr>
+            <tr class="border-t border-slate-200 bg-slate-50">
+              <td class="p-4 font-medium text-slate-900">5 to 10 ms</td>
+              <td class="p-4 text-slate-600">Good for most real-time internet activity.</td>
+              <td class="p-4 text-slate-600">Most homes, work calls, streaming, casual gaming</td>
+            </tr>
+            <tr class="border-t border-slate-200">
+              <td class="p-4 font-medium text-slate-900">10 to 20 ms</td>
+              <td class="p-4 text-slate-600">Usually usable, but spikes may become noticeable.</td>
+              <td class="p-4 text-slate-600">Browsing, streaming, less sensitive games</td>
+            </tr>
+            <tr class="border-t border-slate-200 bg-slate-50">
+              <td class="p-4 font-medium text-slate-900">20 to 30 ms</td>
+              <td class="p-4 text-slate-600">Unstable enough to affect calls, games, or live voice.</td>
+              <td class="p-4 text-slate-600">Needs troubleshooting for real-time apps</td>
+            </tr>
+            <tr class="border-t border-slate-200">
+              <td class="p-4 font-medium text-slate-900">Above 30 ms</td>
+              <td class="p-4 text-slate-600">Poor stability for anything that depends on steady timing.</td>
+              <td class="p-4 text-slate-600">Check Wi-Fi, congestion, routing, or packet loss</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        Jitter should be read together with ping and packet loss. A low average ping can still feel bad if jitter is high, because the connection is not responding at a steady pace.
+      </p>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">Good jitter depends on what you are doing</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Gaming feels best when jitter stays below 10 ms because response timing is more consistent.</li>
+          <li>Video calls can often tolerate a little more jitter, but voice can stutter when spikes get frequent.</li>
+          <li>Streaming usually buffers ahead, so it is less sensitive unless packet loss or Wi-Fi drops are also present.</li>
+          <li>Browsing is the least sensitive, but high jitter can still make pages feel uneven or slow to respond.</li>
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7">
+        <h2 class="text-[1.7rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900">What to check when jitter is high</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+          <li>Run several tests instead of trusting one result.</li>
+          <li>Compare Wi-Fi with mobile data or Ethernet when possible.</li>
+          <li>Pause downloads, cloud backups, app updates, and 4K streaming on the same network.</li>
+          <li>Move closer to the router and test again to check signal quality.</li>
+          <li>Look at packet loss too, because dropped packets often make jitter feel worse.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-[#fffaf5] p-8 ring-1 ring-[#f0dfcf]">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Is your jitter good enough?</h2>
+      <div class="mt-6 grid gap-5 md:grid-cols-3">
+        <article class="rounded-2xl bg-white p-5 shadow-sm">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">For gaming</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Aim for below 10 ms. If the game rubber-bands or aim feels uneven, compare jitter with ping and packet loss.</p>
+          <a href="./what-is-good-jitter-for-gaming.html" class="mt-4 inline-flex text-sm font-bold text-primary hover:underline">Gaming jitter guide</a>
+        </article>
+        <article class="rounded-2xl bg-white p-5 shadow-sm">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">For video calls</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Below 10 ms is smooth, while 10 to 20 ms is often usable. Spikes above that can create voice gaps.</p>
+          <a href="./what-is-good-jitter-for-video-calls.html" class="mt-4 inline-flex text-sm font-bold text-primary hover:underline">Video call jitter guide</a>
+        </article>
+        <article class="rounded-2xl bg-white p-5 shadow-sm">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">For everyday use</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Browsing and buffered video are more forgiving, but high jitter still points to Wi-Fi interference or congestion.</p>
+          <a href="./how-to-fix-high-jitter.html" class="mt-4 inline-flex text-sm font-bold text-primary hover:underline">Fix high jitter</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white">
+      <h2 class="text-3xl font-extrabold">Measure jitter with the rest of the network picture</h2>
+      <p class="mt-4 max-w-3xl text-[0.98rem] leading-8 text-slate-300">
+        LizSpeedTest helps you check jitter together with ping, packet loss, download speed, and upload speed so you can understand whether a bad experience comes from delay, instability, dropped packets, or raw bandwidth.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed&referrer=utm_source%3Dlizspeedtest%26utm_medium%3Dwebsite%26utm_campaign%3Dgood_jitter%26utm_content%3Dpage_cta" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-xl bg-primary px-6 py-3 text-[1rem] font-bold text-white transition-colors hover:bg-orange-500">
+          Download LizSpeedTest on Google Play
+        </a>
+        <a href="./what-is-jitter.html" class="inline-flex rounded-xl border border-white/15 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/5">
+          Read what jitter means
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900">Related guides</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <a href="./what-is-jitter.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">What is jitter?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Start with the basic speed test definition.</p>
+        </a>
+        <a href="./why-is-my-jitter-high.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Why is my jitter high?</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Diagnose the cause before changing hardware.</p>
+        </a>
+        <a href="./how-to-fix-high-jitter.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">How to fix high jitter</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Follow practical steps to reduce unstable latency.</p>
+        </a>
+        <a href="./jitter-vs-latency.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Jitter vs latency</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Compare unstable timing with overall delay.</p>
+        </a>
+        <a href="./what-is-good-jitter-for-gaming.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Good jitter for gaming</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Read the gaming-specific target range.</p>
+        </a>
+        <a href="./what-is-good-jitter-for-video-calls.html" class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+          <h3 class="text-[1.2rem] font-extrabold tracking-[-0.03em] text-slate-900">Good jitter for video calls</h3>
+          <p class="mt-2 text-[0.98rem] leading-8 text-slate-600">Check the range for smoother meetings.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#eee2d7] bg-white/88 py-10 px-6">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 text-[0.96rem] text-[#7a7a7a] sm:flex-row">
+      <p>&copy; 2026 Liz Media. All rights reserved.</p>
+      <nav class="flex gap-6">
+        <a href="./guides.html" class="hover:text-primary">Guides</a>
+        <a href="./what-is-jitter.html" class="hover:text-primary">What Is Jitter</a>
+        <a href="./privacy.html" class="hover:text-primary">Privacy Policy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

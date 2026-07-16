@@ -1,0 +1,45 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE7C7" />
+      <stop offset="1" stop-color="#FDBA46" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(870 300) rotate(180) scale(380 280)">
+      <stop stop-color="#FFF3E5" stop-opacity="0.95" />
+      <stop offset="1" stop-color="#FFF3E5" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" rx="40" fill="url(#bg)" />
+  <rect width="1200" height="630" rx="40" fill="url(#glow)" />
+
+  <g opacity="0.16">
+    <circle cx="928" cy="154" r="6" fill="#F7911D" />
+    <circle cx="1018" cy="418" r="10" fill="#23B49E" />
+    <circle cx="866" cy="468" r="8" fill="#F47C20" />
+    <circle cx="738" cy="186" r="7" fill="#F0B23E" />
+  </g>
+
+  <text x="88" y="212" fill="#111827" font-family="Segoe UI, Arial, sans-serif" font-size="66" font-weight="800">
+    LizSpeedTest
+  </text>
+  <text x="88" y="290" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="600">
+    Android internet speed test for download, upload,
+  </text>
+  <text x="88" y="334" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="600">
+    ping, jitter, and packet loss.
+  </text>
+
+  <g>
+    <rect x="88" y="394" width="220" height="66" rx="18" fill="#F7911D" />
+    <text x="126" y="437" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800">
+      Google Play
+    </text>
+  </g>
+
+  <g>
+    <rect x="690" y="95" width="404" height="404" rx="42" fill="white" fill-opacity="0.52" />
+    <rect x="710" y="115" width="364" height="364" rx="36" fill="white" fill-opacity="0.74" />
+    <image href="./lizspeed-logo.png" x="742" y="147" width="300" height="300" preserveAspectRatio="xMidYMid meet" />
+  </g>
+</svg>
