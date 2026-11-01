@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      var canonicalHost = 'speed.lizmediaapp.com';
+      var host = window.location.hostname.toLowerCase();
+      var path = window.location.pathname || '/';
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+      if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) return;
+      var targetHost = host;
+      var shouldRedirect = false;
+      if (host === 'lizmediaapp.github.io') { targetHost = canonicalHost; path = path.replace(/^\/speed(?=\/|$)/, '') || '/'; shouldRedirect = true; }
+      else if (host === 'www.speed.lizmediaapp.com') { targetHost = canonicalHost; shouldRedirect = true; }
+      else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) { targetHost = canonicalHost; path = path.replace(/^\/speed(?=\/|$)/, '') || '/'; shouldRedirect = true; }
+      else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) { path = path.replace(/^\/speed(?=\/|$)/, '') || '/'; shouldRedirect = true; }
+      else if (host !== canonicalHost) return;
+      if (path === '/index.html') { path = '/'; shouldRedirect = true; }
+      else if (/\/index\.html$/.test(path)) { path = path.replace(/\/index\.html$/, '/'); shouldRedirect = true; }
+      if (host === canonicalHost && window.location.protocol !== 'https:') shouldRedirect = true;
+      var target = 'https://' + targetHost + path + search + hash;
+      if (shouldRedirect && target !== window.location.href) window.location.replace(target);
+    })();
+  </script>
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>How to Read Internet Speed Test Results - LizSpeedTest</title>
+  <meta name="description" content="Learn how to read download speed, upload speed, ping, jitter, and packet loss in an internet speed test, including what to compare and when to test again." />
+  <link rel="canonical" href="https://speed.lizmediaapp.com/internet-speed-test-results.html" />
+  <link rel="icon" type="image/x-icon" href="./image/icon.ico" />
+  <meta property="og:title" content="How to Read Internet Speed Test Results" />
+  <meta property="og:description" content="Understand Mbps, milliseconds, jitter, and packet loss so you can compare repeated results and choose the next troubleshooting step." />
+  <meta property="og:url" content="https://speed.lizmediaapp.com/internet-speed-test-results.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How to Read Internet Speed Test Results" />
+  <meta name="twitter:description" content="A practical guide to download speed, upload speed, ping, jitter, and packet loss." />
+  <meta name="twitter:image" content="https://speed.lizmediaapp.com/image/lizspeed-logo.png" />
+  <link rel="stylesheet" href="./assets/static-tailwind.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {"@type":"Article","headline":"How to Read Internet Speed Test Results","description":"Learn how to interpret download speed, upload speed, ping, jitter, and packet loss.","url":"https://speed.lizmediaapp.com/internet-speed-test-results.html","datePublished":"2026-11-01","dateModified":"2026-11-01","author":{"@type":"Organization","name":"Liz Media","url":"https://lizmediaapp.com"},"publisher":{"@type":"Organization","name":"Liz Media","url":"https://lizmediaapp.com"}},
+        {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://speed.lizmediaapp.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://speed.lizmediaapp.com/guides.html"},{"@type":"ListItem","position":3,"name":"Internet Speed Test Results","item":"https://speed.lizmediaapp.com/internet-speed-test-results.html"}]},
+        {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should I look at first in a speed test?","acceptedAnswer":{"@type":"Answer","text":"Start with the metric that matches the problem. Use download and upload speed for bandwidth, ping for delay, jitter for inconsistent delay, and packet loss for data that does not arrive."}},{"@type":"Question","name":"Why should I run more than one test?","acceptedAnswer":{"@type":"Answer","text":"A single result can be affected by the server, device, Wi-Fi signal, background traffic, VPN, and time of day. Repeated tests make patterns easier to see."}},{"@type":"Question","name":"Can a fast speed test still feel bad?","acceptedAnswer":{"@type":"Answer","text":"Yes. High bandwidth can coexist with high ping, unstable jitter, or packet loss. Those connection-quality signals can affect games, calls, and interactive apps."}}]}
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+  <style>body{font-family:'Plus Jakarta Sans',sans-serif;}</style>
+<script src="./assets/back-to-top.js" defer></script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="fixed left-0 right-0 top-5 z-40 px-4 sm:px-6"><div class="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between rounded-[2rem] border border-[#efe3d7] bg-white/94 px-6 shadow-[0_22px_60px_-38px_rgba(106,74,47,0.35)] backdrop-blur-xl sm:px-8 lg:px-10">
+    <a href="./" class="flex items-center gap-3 transition-opacity hover:opacity-90"><img src="./image/lizspeed-logo.png" alt="LizSpeedTest" class="h-12 w-12 rounded-2xl object-contain" /><span class="text-[2rem] font-extrabold tracking-[-0.03em] text-[#141414]">LizSpeedTest</span></a>
+    <nav class="hidden items-center gap-10 lg:flex"><a href="./" class="text-[1.05rem] font-medium text-[#1c1c1c] hover:text-primary">Home</a><a href="./guides.html" class="text-[1.05rem] font-medium text-[#1c1c1c] hover:text-primary">Guides</a><a href="./help.html" class="text-[1.05rem] font-medium text-[#1c1c1c] hover:text-primary">Help</a><a href="./about.html" class="text-[1.05rem] font-medium text-[#1c1c1c] hover:text-primary">About</a></nav>
+    <a href="https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed" target="_blank" rel="noopener noreferrer" class="inline-flex min-w-[148px] items-center justify-center rounded-[1.1rem] bg-[#f47c20] px-6 py-4 text-base font-bold text-white">Get App</a>
+  </div></header>
+  <main class="mx-auto max-w-5xl px-6 pb-16 pt-40">
+    <p class="text-[0.92rem] font-bold uppercase tracking-[0.22em] text-primary">Results guide</p>
+    <h1 class="mt-4 max-w-4xl text-[2.85rem] font-extrabold leading-[1.02] tracking-[-0.05em] text-slate-900">How to Read Internet Speed Test Results</h1>
+    <p class="mt-5 max-w-3xl text-[1.08rem] leading-9 text-slate-600">An internet speed test gives you more than one number. Download and upload speed describe bandwidth, while ping, jitter, and packet loss help explain delay and instability. Compare repeated tests under similar conditions before deciding whether your network needs troubleshooting.</p>
+
+    <section class="mt-12 grid gap-5 md:grid-cols-2">
+      <article class="rounded-2xl border border-slate-200 bg-white p-7"><h2 class="text-[1.7rem] font-extrabold text-slate-900">Download speed</h2><p class="mt-3 leading-8 text-slate-600">Download speed measures how quickly data moves to your device. It matters for streaming, browsing, downloads, and cloud access. Compare it with the plan or service you expect, but remember that the selected server and current traffic can change the result.</p></article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7"><h2 class="text-[1.7rem] font-extrabold text-slate-900">Upload speed</h2><p class="mt-3 leading-8 text-slate-600">Upload speed measures how quickly data leaves your device. It matters for video calls, cloud backups, file uploads, and live streaming. A download result cannot tell you whether uploading is the bottleneck.</p></article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7"><h2 class="text-[1.7rem] font-extrabold text-slate-900">Ping and latency</h2><p class="mt-3 leading-8 text-slate-600">Ping is the response time between your device and a test server, usually shown in milliseconds. Lower is usually better for interactive use, but distance, routing, Wi-Fi, VPNs, and server load affect the reading.</p></article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-7"><h2 class="text-[1.7rem] font-extrabold text-slate-900">Jitter and packet loss</h2><p class="mt-3 leading-8 text-slate-600">Jitter describes how much latency changes between samples. Packet loss means some test data did not arrive. Either can make calls, games, or browsing feel unstable even when Mbps looks high.</p></article>
+    </section>
+
+    <section class="mt-12 rounded-3xl bg-slate-900 px-8 py-10 text-white"><h2 class="text-3xl font-extrabold">A practical way to compare results</h2><ol class="mt-6 space-y-4 text-[1rem] leading-8 text-slate-200"><li><strong class="text-white">1. Keep the conditions visible.</strong> Note Wi-Fi or mobile data, location, server, device, VPN state, and time.</li><li><strong class="text-white">2. Repeat the test.</strong> One reading can be an outlier. Compare several results before changing your setup.</li><li><strong class="text-white">3. Match the symptom to the metric.</strong> Slow downloads point toward bandwidth; lag points toward latency; inconsistent calls can involve jitter or loss.</li><li><strong class="text-white">4. Preserve evidence.</strong> Save results and share the time, connection type, and measurements when you contact an ISP.</li></ol></section>
+
+    <section class="mt-12 rounded-3xl border border-slate-200 bg-white p-8"><h2 class="text-[2.2rem] font-extrabold text-slate-900">What LizSpeedTest can help you compare</h2><p class="mt-4 leading-8 text-slate-600">The Android app measures download speed, upload speed, ping, jitter, and packet loss, and can save results locally for comparison. The app also provides network-quality explanations and history features. Availability, limits, and subscription access depend on the current Android release and Google Play offering.</p><div class="mt-6 flex flex-wrap gap-3"><a href="./help.html" class="rounded-xl bg-primary px-5 py-3 font-bold text-white">Read the Help Center</a><a href="./what-is-ping.html" class="rounded-xl border border-slate-200 px-5 py-3 font-bold text-slate-800">What is ping?</a><a href="./what-is-jitter.html" class="rounded-xl border border-slate-200 px-5 py-3 font-bold text-slate-800">What is jitter?</a><a href="./what-is-packet-loss.html" class="rounded-xl border border-slate-200 px-5 py-3 font-bold text-slate-800">What is packet loss?</a></div></section>
+
+    <section class="mt-12"><h2 class="text-[2.2rem] font-extrabold text-slate-900">Frequently asked questions</h2><div class="mt-6 space-y-4"><details class="rounded-2xl border border-slate-200 bg-white p-6"><summary class="cursor-pointer text-[1.15rem] font-extrabold text-slate-900">What should I look at first in a speed test?</summary><p class="mt-4 leading-8 text-slate-600">Start with the metric that matches the problem. Use download and upload speed for bandwidth, ping for delay, jitter for inconsistent delay, and packet loss for data that does not arrive.</p></details><details class="rounded-2xl border border-slate-200 bg-white p-6"><summary class="cursor-pointer text-[1.15rem] font-extrabold text-slate-900">Why should I run more than one test?</summary><p class="mt-4 leading-8 text-slate-600">A single result can be affected by the server, device, Wi-Fi signal, background traffic, VPN, and time of day. Repeated tests make patterns easier to see.</p></details><details class="rounded-2xl border border-slate-200 bg-white p-6"><summary class="cursor-pointer text-[1.15rem] font-extrabold text-slate-900">Can a fast speed test still feel bad?</summary><p class="mt-4 leading-8 text-slate-600">Yes. High bandwidth can coexist with high ping, unstable jitter, or packet loss. Those connection-quality signals can affect games, calls, and interactive apps.</p></details></div></section>
+  </main>
+  <footer class="border-t border-[#eee2d7] bg-white py-10"><div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 text-sm text-slate-500 sm:flex-row"><span>© 2026 LizSpeedTest. All rights reserved.</span><span><a href="./privacy.html" class="hover:text-primary">Privacy</a> · <a href="./terms.html" class="hover:text-primary">Terms</a> · <a href="./guides.html" class="hover:text-primary">Guides</a></span></div></footer>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // canonical-host-redirect
+      (function () {
+        var canonicalHost = 'speed.lizmediaapp.com';
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host.endsWith('.localhost')) {
+          return;
+        }
+
+        var targetHost = host;
+        var shouldRedirect = false;
+
+        if (host === 'lizmediaapp.github.io') {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === 'www.speed.lizmediaapp.com') {
+          targetHost = canonicalHost;
+          shouldRedirect = true;
+        } else if ((host === 'lizmediaapp.com' || host === 'www.lizmediaapp.com') && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          targetHost = canonicalHost;
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host === canonicalHost && (path === '/speed' || path.indexOf('/speed/') === 0)) {
+          path = path.replace(/^\/speed(?=\/|$)/, '') || '/';
+          shouldRedirect = true;
+        } else if (host !== canonicalHost) {
+          return;
+        }
+
+        if (path === '/index.html') {
+          path = '/';
+          shouldRedirect = true;
+        } else if (/\/index\.html$/.test(path)) {
+          path = path.replace(/\/index\.html$/, '/');
+          shouldRedirect = true;
+        }
+
+        if (host === canonicalHost && window.location.protocol !== 'https:') {
+          shouldRedirect = true;
+        }
+
+        var target = 'https://' + targetHost + path + search + hash;
+        if (shouldRedirect && target !== window.location.href) {
+          window.location.replace(target);
+        }
+      })();
+    </script>
+<title>LizSpeedTest - Android Speed Test, Ping, Jitter & Packet Loss</title>
+    <meta
+      name="description"
+      content="LizSpeedTest helps Android users measure download speed, upload speed, ping, jitter, and packet loss, compare local history, and understand possible network quality issues."
+    />
+    <meta
+      name="keywords"
+      content="internet speed test, wifi speed test, ping test, jitter test, packet loss test, android speed test, broadband speed checker, network diagnostic app"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#f7911d" />
+    <meta
+      property="og:title"
+      content="LizSpeedTest - Android Speed Test, Ping, Jitter & Packet Loss"
+    />
+    <meta
+      property="og:description"
+      content="Measure download speed, upload speed, ping, jitter, and packet loss on Android, then compare results and choose a practical troubleshooting path."
+    />
+    <meta property="og:url" content="https://speed.lizmediaapp.com/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://speed.lizmediaapp.com/image/lizspeed-logo.png"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="LizSpeedTest - Android Speed Test, Ping, Jitter & Packet Loss"
+    />
+    <meta
+      name="twitter:description"
+      content="Download the Android app to measure internet speed, latency, jitter, and packet loss, compare results, and review network conditions."
+    />
+    <meta
+      name="twitter:image"
+      content="https://speed.lizmediaapp.com/image/lizspeed-logo.png"
+    />
+    <link rel="canonical" href="https://speed.lizmediaapp.com/" />
+    <link rel="icon" type="image/x-icon" href="/image/icon.ico" />
+    <link rel="shortcut icon" href="/image/icon.ico" />
+    <link rel="apple-touch-icon" href="/image/icon.ico" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "LizSpeedTest",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Android",
+        "url": "https://speed.lizmediaapp.com/",
+        "downloadUrl": "https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed",
+        "installUrl": "https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed",
+        "sameAs": [
+          "https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed",
+          "https://github.com/lizmediaapp/lizmediaapp.github.io"
+        ],
+        "image": "https://speed.lizmediaapp.com/image/lizspeed-logo.png",
+        "description": "LizSpeedTest is an Android network quality app that helps measure download speed, upload speed, ping, jitter, and packet loss, with local history and troubleshooting context."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What can LizSpeedTest measure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "LizSpeedTest helps measure download speed, upload speed, ping, jitter, and packet loss so you can compare bandwidth and connection quality. Results can vary with the server, device, Wi-Fi conditions, background traffic, VPN, and time of day."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is LizSpeedTest available right now?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The current public release of LizSpeedTest is available on Google Play for Android. Other platforms are not publicly available."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does LizSpeedTest save test history?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. When history saving is enabled, LizSpeedTest can save test results locally on your device so you can compare network performance over time."
+          }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is LizSpeedTest for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "LizSpeedTest is designed for people troubleshooting home Wi-Fi, mobile data, gaming latency, video calls, or network performance over time."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Liz Media",
+        "url": "https://lizmediaapp.com",
+        "logo": "https://lizmediaapp.com/image/lizmedia-logo.png",
+        "description": "Liz Media develops LizSpeedTest, an Android network quality app for measuring speed, latency, jitter, packet loss, and related connection signals.",
+        "sameAs": [
+          "https://play.google.com/store/apps/details?id=io.vicp.pomok.liz.speed",
+          "https://github.com/lizmediaapp"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://speed.lizmediaapp.com",
+        "name": "LizSpeedTest",
+        "description": "Test download speed, upload speed, ping, jitter, and packet loss with LizSpeedTest."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "LizSpeedTest core guides",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://speed.lizmediaapp.com/help.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://speed.lizmediaapp.com/what-is-ping.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://speed.lizmediaapp.com/what-is-jitter.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://speed.lizmediaapp.com/jitter-vs-latency.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://speed.lizmediaapp.com/what-is-packet-loss.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "url": "https://speed.lizmediaapp.com/why-is-my-ping-so-high.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "url": "https://speed.lizmediaapp.com/how-to-fix-slow-wifi.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "url": "https://speed.lizmediaapp.com/internet-speed-test-results.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "url": "https://speed.lizmediaapp.com/fast-internet-but-laggy.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "url": "https://speed.lizmediaapp.com/network-quality-score.html"
+          }
+        ]
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-CgmqMTgs.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C7H-uNRl.css">
+  </head>
+  <body>
+    <script src="./assets/back-to-top.js" defer></script>
+    <div id="root"></div>
+    <noscript>
+      <div>
+        <p>LizSpeedTest core support pages:</p>
+        <a href="https://speed.lizmediaapp.com/help.html">Help Center</a>
+        <a href="https://speed.lizmediaapp.com/what-is-ping.html">What is ping?</a>
+        <a href="https://speed.lizmediaapp.com/what-is-jitter.html">What is jitter?</a>
+        <a href="https://speed.lizmediaapp.com/jitter-vs-latency.html">Jitter vs latency</a>
+        <a href="https://speed.lizmediaapp.com/what-is-packet-loss.html">What is packet loss?</a>
+        <a href="https://speed.lizmediaapp.com/why-is-my-ping-so-high.html">Why is my ping so high?</a>
+        <a href="https://speed.lizmediaapp.com/how-to-fix-slow-wifi.html">How to fix slow Wi-Fi</a>
+      </div>
+    </noscript>
+  </body>
+</html>
